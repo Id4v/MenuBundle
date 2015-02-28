@@ -1,0 +1,3 @@
+overscan_menu_homepage:
+    path:     /menu
+    defaults: { _controller: OverscanMenuBundle:Default:index }

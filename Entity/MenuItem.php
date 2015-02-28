@@ -1,0 +1,325 @@
+<?php
+
+namespace Overscan\Bundle\MenuBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * MenuItem
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Overscan\Bundle\MenuBundle\Entity\MenuItemRepository")
+ */
+class MenuItem
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255)
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="url", type="string", length=255)
+     */
+    private $url;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="active", type="boolean")
+     */
+    private $active;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="target", type="string", length=255, nullable=true)
+     */
+    private $target;
+
+    /**
+     * @var integer
+     * @ORM\Column(name="position", type="integer", nullable=false)
+     */
+    private $position;
+
+    /**
+     * @var integer
+     * @ORM\Column(name="depth", type="integer", nullable=false)
+     */
+    private $depth;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="MenuItem", inversedBy="children")
+     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id", onDelete="CASCADE")
+     */
+    private $parent;
+
+    /**
+     * @ORM\OneToMany(targetEntity="MenuItem", mappedBy="parent")
+     * @ORM\OrderBy({"position" = "ASC"})
+     */
+    private $children;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Overscan\Bundle\MenuBundle\Entity\Menu", inversedBy="items")
+     */
+    private $menu;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     * @return MenuItem
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string 
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     * @return MenuItem
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string 
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     * @return MenuItem
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean 
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * Set target
+     *
+     * @param array $target
+     * @return MenuItem
+     */
+    public function setTarget($target)
+    {
+        $this->target = $target;
+
+        return $this;
+    }
+
+    /**
+     * Get target
+     *
+     * @return array 
+     */
+    public function getTarget()
+    {
+        return $this->target;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->children = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set parent
+     *
+     * @param \Overscan\Bundle\MenuBundle\Entity\MenuItem $parent
+     * @return MenuItem
+     */
+    public function setParent(\Overscan\Bundle\MenuBundle\Entity\MenuItem $parent = null)
+    {
+        $this->parent = $parent;
+
+        return $this;
+    }
+
+    /**
+     * Get parent
+     *
+     * @return \Overscan\Bundle\MenuBundle\Entity\MenuItem 
+     */
+    public function getParent()
+    {
+        return $this->parent;
+    }
+
+    /**
+     * Add children
+     *
+     * @param \Overscan\Bundle\MenuBundle\Entity\MenuItem $children
+     * @return MenuItem
+     */
+    public function addChild(\Overscan\Bundle\MenuBundle\Entity\MenuItem $children)
+    {
+        $this->children[] = $children;
+
+        return $this;
+    }
+
+    /**
+     * Remove children
+     *
+     * @param \Overscan\Bundle\MenuBundle\Entity\MenuItem $children
+     */
+    public function removeChild(\Overscan\Bundle\MenuBundle\Entity\MenuItem $children)
+    {
+        $this->children->removeElement($children);
+    }
+
+    /**
+     * Get children
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getChildren()
+    {
+        return $this->children;
+    }
+
+    /**
+     * Set menu
+     *
+     * @param \Overscan\Bundle\MenuBundle\Entity\Menu $menu
+     * @return MenuItem
+     */
+    public function setMenu(\Overscan\Bundle\MenuBundle\Entity\Menu $menu = null)
+    {
+        $this->menu = $menu;
+
+        return $this;
+    }
+
+    /**
+     * Get menu
+     *
+     * @return \Overscan\Bundle\MenuBundle\Entity\Menu 
+     */
+    public function getMenu()
+    {
+        return $this->menu;
+    }
+
+    function __toString()
+    {
+        return $this->title."";
+    }
+
+
+
+    /**
+     * Set position
+     *
+     * @param integer $position
+     * @return MenuItem
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * Get position
+     *
+     * @return integer 
+     */
+    public function getPosition()
+    {
+        return $this->position;
+    }
+
+    /**
+     * Set depth
+     *
+     * @param integer $depth
+     * @return MenuItem
+     */
+    public function setDepth($depth)
+    {
+        $this->depth = $depth;
+
+        return $this;
+    }
+
+    /**
+     * Get depth
+     *
+     * @return integer 
+     */
+    public function getDepth()
+    {
+        return $this->depth;
+    }
+
+    public function hasChildren(){
+        return count($this->children)>0;
+    }
+}

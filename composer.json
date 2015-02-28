@@ -1,0 +1,19 @@
+{
+    "name": "ovs/menu-bundle",
+    "type": "symfony-bundle",
+    "description": "Menu Bundle that allows you to create menus, and manage them easily",
+    "keywords": ["Menu","menu generator"],
+    "require": {
+        "sonata-project/admin-bundle": "~2.3"
+    },
+    "authors": [
+        {
+            "name": "David Rimbault",
+            "email": "rimbault.david@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Overscan\\Bundle\\MenuBundle\\": "" }
+    },
+    "minimum-stability": "stable"
+}
