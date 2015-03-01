@@ -144,21 +144,30 @@ class Menu
         return $this->name."";
     }
 
-    public function getHierarchy(){
+    public function getHierarchy($activeOnly=true){
         $retour=array();
         $items=$this->getItems();
         foreach($items as $item){
             if($item->getParent()==null)
-                $this->getHierarchyFromNode($item,$retour);
+                $this->getHierarchyFromNode($item,$retour,$activeOnly);
         }
         return $retour;
     }
 
-    public function getHierarchyFromNode($node,&$retour){
+    /**
+     * @param MenuItem $node
+     * @param $retour
+     * @param $activeOnly
+     */
+    public function getHierarchyFromNode($node,&$retour,$activeOnly){
+        if(!$node->getActive() && $activeOnly){
+            return;
+        }
+
         $retour[]=$node;
         if($node->hasChildren()){
             foreach($node->getChildren() as $child) {
-                $this->getHierarchyFromNode($child, $retour);
+                $this->getHierarchyFromNode($child, $retour,$activeOnly);
             }
         }
     }

@@ -16,7 +16,7 @@ class MenuAdminController extends Controller
 
         $menu=$this->getDoctrine()->getRepository("OverscanMenuBundle:Menu")->find($idMenu);
 
-        $items=$menu->getHierarchy();
+        $items=$menu->getHierarchy(false);
         //var_dump($items);
 
         $forms=array();
