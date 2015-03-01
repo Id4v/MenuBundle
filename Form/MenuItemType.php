@@ -17,7 +17,7 @@ class MenuItemType extends AbstractType
         $builder
             ->add('title')
             ->add('url')
-            ->add('active')
+            ->add('active',null,array("required"=>false))
             ->add('target')
         ;
     }
