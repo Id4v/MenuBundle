@@ -1,6 +1,6 @@
 <?php
 
-namespace Overscan\Bundle\MenuBundle\Entity;
+namespace Id4v\Bundle\MenuBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 

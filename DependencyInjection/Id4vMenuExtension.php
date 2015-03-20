@@ -1,6 +1,6 @@
 <?php
 
-namespace Overscan\Bundle\MenuBundle\DependencyInjection;
+namespace Id4v\Bundle\MenuBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
@@ -12,7 +12,7 @@ use Symfony\Component\DependencyInjection\Loader;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class OverscanMenuExtension extends Extension
+class Id4vMenuExtension extends Extension
 {
     /**
      * {@inheritdoc}

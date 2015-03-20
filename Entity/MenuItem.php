@@ -1,13 +1,13 @@
 <?php
 
-namespace Overscan\Bundle\MenuBundle\Entity;
+namespace Id4v\Bundle\MenuBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * MenuItem
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Overscan\Bundle\MenuBundle\Entity\MenuItemRepository")
+ * @ORM\Entity(repositoryClass="Id4v\Bundle\MenuBundle\Entity\MenuItemRepository")
  */
 class MenuItem
 {
@@ -73,7 +73,7 @@ class MenuItem
     private $children;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Overscan\Bundle\MenuBundle\Entity\Menu", inversedBy="items")
+     * @ORM\ManyToOne(targetEntity="Id4v\Bundle\MenuBundle\Entity\Menu", inversedBy="items")
      */
     private $menu;
 
@@ -190,10 +190,10 @@ class MenuItem
     /**
      * Set parent
      *
-     * @param \Overscan\Bundle\MenuBundle\Entity\MenuItem $parent
+     * @param \Id4v\Bundle\MenuBundle\Entity\MenuItem $parent
      * @return MenuItem
      */
-    public function setParent(\Overscan\Bundle\MenuBundle\Entity\MenuItem $parent = null)
+    public function setParent(\Id4v\Bundle\MenuBundle\Entity\MenuItem $parent = null)
     {
         $this->parent = $parent;
 
@@ -203,7 +203,7 @@ class MenuItem
     /**
      * Get parent
      *
-     * @return \Overscan\Bundle\MenuBundle\Entity\MenuItem 
+     * @return \Id4v\Bundle\MenuBundle\Entity\MenuItem
      */
     public function getParent()
     {
@@ -213,10 +213,10 @@ class MenuItem
     /**
      * Add children
      *
-     * @param \Overscan\Bundle\MenuBundle\Entity\MenuItem $children
+     * @param \Id4v\Bundle\MenuBundle\Entity\MenuItem $children
      * @return MenuItem
      */
-    public function addChild(\Overscan\Bundle\MenuBundle\Entity\MenuItem $children)
+    public function addChild(\Id4v\Bundle\MenuBundle\Entity\MenuItem $children)
     {
         $this->children[] = $children;
 
@@ -226,9 +226,9 @@ class MenuItem
     /**
      * Remove children
      *
-     * @param \Overscan\Bundle\MenuBundle\Entity\MenuItem $children
+     * @param \Id4v\Bundle\MenuBundle\Entity\MenuItem $children
      */
-    public function removeChild(\Overscan\Bundle\MenuBundle\Entity\MenuItem $children)
+    public function removeChild(\Id4v\Bundle\MenuBundle\Entity\MenuItem $children)
     {
         $this->children->removeElement($children);
     }
@@ -246,10 +246,10 @@ class MenuItem
     /**
      * Set menu
      *
-     * @param \Overscan\Bundle\MenuBundle\Entity\Menu $menu
+     * @param \Id4v\Bundle\MenuBundle\Entity\Menu $menu
      * @return MenuItem
      */
-    public function setMenu(\Overscan\Bundle\MenuBundle\Entity\Menu $menu = null)
+    public function setMenu(\Id4v\Bundle\MenuBundle\Entity\Menu $menu = null)
     {
         $this->menu = $menu;
 
@@ -259,7 +259,7 @@ class MenuItem
     /**
      * Get menu
      *
-     * @return \Overscan\Bundle\MenuBundle\Entity\Menu 
+     * @return \Id4v\Bundle\MenuBundle\Entity\Menu
      */
     public function getMenu()
     {

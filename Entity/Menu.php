@@ -1,16 +1,16 @@
 <?php
 
-namespace Overscan\Bundle\MenuBundle\Entity;
+namespace Id4v\Bundle\MenuBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-use Overscan\Bundle\MenuBundle\Entity\MenuItem;
+use Id4v\Bundle\MenuBundle\Entity\MenuItem;
 
 /**
  * Menu
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Overscan\Bundle\MenuBundle\Entity\MenuRepository")
+ * @ORM\Entity(repositoryClass="Id4v\Bundle\MenuBundle\Entity\MenuRepository")
  */
 class Menu
 {
@@ -109,10 +109,10 @@ class Menu
     /**
      * Add items
      *
-     * @param \Overscan\Bundle\MenuBundle\Entity\MenuItem $items
+     * @param \Id4v\Bundle\MenuBundle\Entity\MenuItem $items
      * @return Menu
      */
-    public function addItem(\Overscan\Bundle\MenuBundle\Entity\MenuItem $items)
+    public function addItem(\Id4v\Bundle\MenuBundle\Entity\MenuItem $items)
     {
         $this->items[] = $items;
 
@@ -122,9 +122,9 @@ class Menu
     /**
      * Remove items
      *
-     * @param \Overscan\Bundle\MenuBundle\Entity\MenuItem $items
+     * @param \Id4v\Bundle\MenuBundle\Entity\MenuItem $items
      */
-    public function removeItem(\Overscan\Bundle\MenuBundle\Entity\MenuItem $items)
+    public function removeItem(\Id4v\Bundle\MenuBundle\Entity\MenuItem $items)
     {
         $this->items->removeElement($items);
     }

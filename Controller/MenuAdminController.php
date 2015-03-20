@@ -1,12 +1,12 @@
 <?php
 
-namespace Overscan\Bundle\MenuBundle\Controller;
+namespace Id4v\Bundle\MenuBundle\Controller;
 
-use Overscan\Bundle\MenuBundle\Entity\MenuItem;
-use Overscan\Bundle\MenuBundle\Form\MenuItemOrderingType;
+use Id4v\Bundle\MenuBundle\Entity\MenuItem;
+use Id4v\Bundle\MenuBundle\Form\MenuItemOrderingType;
 use Sonata\AdminBundle\Controller\CRUDController as Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Overscan\Bundle\MenuBundle\Form\MenuItemType;
+use Id4v\Bundle\MenuBundle\Form\MenuItemType;
 
 class MenuAdminController extends Controller
 {
@@ -14,7 +14,7 @@ class MenuAdminController extends Controller
     {
         $idMenu=$request->get("id");
 
-        $menu=$this->getDoctrine()->getRepository("OverscanMenuBundle:Menu")->find($idMenu);
+        $menu=$this->getDoctrine()->getRepository("Id4vMenuBundle:Menu")->find($idMenu);
 
         $items=$menu->getHierarchy(false);
         //var_dump($items);
@@ -25,7 +25,7 @@ class MenuAdminController extends Controller
             $forms[]=$form->createView();
         }
 
-        return $this->render("OverscanMenuBundle:CRUD:admin_arrange.html.twig",
+        return $this->render("Id4vMenuBundle:CRUD:admin_arrange.html.twig",
           array(
             "menu"=>$menu,
             "forms"=>$forms
@@ -35,8 +35,8 @@ class MenuAdminController extends Controller
 
     public function updateItemsAction(Request $request){
 
-        $em=$this->getDoctrine()->getEntityManagerForClass("OverscanMenuBundle:MenuItem");
-        $repo=$this->getDoctrine()->getRepository("OverscanMenuBundle:MenuItem");
+        $em=$this->getDoctrine()->getEntityManagerForClass("Id4vMenuBundle:MenuItem");
+        $repo=$this->getDoctrine()->getRepository("Id4vMenuBundle:MenuItem");
         foreach($request->request->all() as $param){
             $parent=$repo->find($param["parent"]);
             $item=$repo->find($param["id"]);
@@ -51,13 +51,13 @@ class MenuAdminController extends Controller
     }
 
     public function addItemAction(Request $request){
-        $em=$this->getDoctrine()->getManagerForClass("OverscanMenuBundle:MenuItem");
+        $em=$this->getDoctrine()->getManagerForClass("Id4vMenuBundle:MenuItem");
 
         $item=new MenuItem();
 
 
         $idMenu=$request->get("id");
-        $repoMenu=$this->getDoctrine()->getRepository("OverscanMenuBundle:Menu");
+        $repoMenu=$this->getDoctrine()->getRepository("Id4vMenuBundle:Menu");
         $menu=$repoMenu->find($idMenu);
         if($menu){
             $item->setMenu($menu);
@@ -80,12 +80,12 @@ class MenuAdminController extends Controller
             }
         }
 
-        return $this->render("OverscanMenuBundle:CRUD:admin_addItem.html.twig",array("form"=>$form->createView()));
+        return $this->render("Id4vMenuBundle:CRUD:admin_addItem.html.twig",array("form"=>$form->createView()));
     }
 
     public function deleteItemAction(Request $request){
-        $em=$this->getDoctrine()->getEntityManagerForClass("OverscanMenuBundle:MenuItem");
-        $repoItem=$em->getRepository("OverscanMenuBundle:MenuItem");
+        $em=$this->getDoctrine()->getEntityManagerForClass("Id4vMenuBundle:MenuItem");
+        $repoItem=$em->getRepository("Id4vMenuBundle:MenuItem");
         $item=$repoItem->find($request->get("id"));
         $idMenu=$item->getMenu()->getId();
 
@@ -97,12 +97,12 @@ class MenuAdminController extends Controller
             return $this->redirect($this->generateUrl('admin_overscan_menu_menu_organize',array("id"=>$idMenu)));
         }
 
-        return $this->render("OverscanMenuBundle:CRUD:admin_delItem.html.twig",array("item"=>$item));
+        return $this->render("Id4vMenuBundle:CRUD:admin_delItem.html.twig",array("item"=>$item));
     }
 
     public function editItemAction(Request $request){
-        $em=$this->getDoctrine()->getEntityManagerForClass("OverscanMenuBundle:MenuItem");
-        $repoItem=$em->getRepository("OverscanMenuBundle:MenuItem");
+        $em=$this->getDoctrine()->getEntityManagerForClass("Id4vMenuBundle:MenuItem");
+        $repoItem=$em->getRepository("Id4vMenuBundle:MenuItem");
         $item=$repoItem->find($request->get("id"));
         $idMenu=$item->getMenu()->getId();
 
@@ -120,6 +120,6 @@ class MenuAdminController extends Controller
                 return $this->redirect($this->generateUrl('admin_overscan_menu_menu_organize',array("id"=>$idMenu)));
             }
         }
-        return $this->render("OverscanMenuBundle:CRUD:admin_addItem.html.twig",array("form"=>$form->createView()));
+        return $this->render("Id4vMenuBundle:CRUD:admin_addItem.html.twig",array("form"=>$form->createView()));
     }
 }

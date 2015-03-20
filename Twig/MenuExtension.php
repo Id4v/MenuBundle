@@ -6,10 +6,10 @@
  * Time: 22:07
  */
 
-namespace Overscan\Bundle\MenuBundle\Twig;
+namespace Id4v\Bundle\MenuBundle\Twig;
 
 
-use Overscan\Bundle\MenuBundle\Entity\MenuItem;
+use Id4v\Bundle\MenuBundle\Entity\MenuItem;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 class MenuExtension extends \Twig_Extension {
@@ -68,7 +68,7 @@ class MenuExtension extends \Twig_Extension {
         }
 
 
-        $menu=$this->doctrine->getRepository("OverscanMenuBundle:Menu")->findOneBy(array("slug"=>$machineName));
+        $menu=$this->doctrine->getRepository("Id4vMenuBundle:Menu")->findOneBy(array("slug"=>$machineName));
         if(!$menu){
             return "";
         }

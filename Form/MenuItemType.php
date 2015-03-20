@@ -1,6 +1,6 @@
 <?php
 
-namespace Overscan\Bundle\MenuBundle\Form;
+namespace Id4v\Bundle\MenuBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -28,7 +28,7 @@ class MenuItemType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Overscan\Bundle\MenuBundle\Entity\MenuItem'
+            'data_class' => 'Id4v\Bundle\MenuBundle\Entity\MenuItem'
         ));
     }
 

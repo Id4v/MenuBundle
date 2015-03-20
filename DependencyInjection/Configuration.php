@@ -1,6 +1,6 @@
 <?php
 
-namespace Overscan\Bundle\MenuBundle\DependencyInjection;
+namespace Id4v\Bundle\MenuBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

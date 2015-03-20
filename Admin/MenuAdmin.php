@@ -1,6 +1,6 @@
 <?php
 
-namespace Overscan\Bundle\MenuBundle\Admin;
+namespace Id4v\Bundle\MenuBundle\Admin;
 
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
-use Overscan\Bundle\MenuBundle\Entity\MenuItem;
+use Id4v\Bundle\MenuBundle\Entity\MenuItem;
 
 class MenuAdmin extends Admin
 {
@@ -48,7 +48,7 @@ class MenuAdmin extends Admin
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'arrange'=> array(
-                        "template"=>"OverscanMenuBundle:CRUD:list__action_arrange.html.twig"
+                        "template"=>"Id4vMenuBundle:CRUD:list__action_arrange.html.twig"
                     ),
                     'edit' => array(),
                     'delete' => array(),
@@ -83,7 +83,7 @@ class MenuAdmin extends Admin
 
         $retour=parent::create($object);
 
-        $em=$this->getConfigurationPool()->getContainer()->get("doctrine")->getEntityManagerForClass("OverscanMenuBundle:MenuItem");
+        $em=$this->getConfigurationPool()->getContainer()->get("doctrine")->getEntityManagerForClass("Id4vMenuBundle:MenuItem");
 
         $menuItem = new MenuItem();
         $menuItem->setTitle("Racine");

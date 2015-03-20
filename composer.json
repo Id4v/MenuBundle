@@ -1,5 +1,5 @@
 {
-    "name": "ovs/menu-bundle",
+    "name": "id4v/menu-bundle",
     "type": "symfony-bundle",
     "description": "Menu Bundle that allows you to create menus, and manage them easily",
     "keywords": ["Menu","menu generator"],
@@ -14,7 +14,7 @@
         }
     ],
     "autoload": {
-        "psr-4": { "Overscan\\Bundle\\MenuBundle\\": "" }
+        "psr-4": { "Id4v\\Bundle\\MenuBundle\\": "" }
     },
     "minimum-stability": "stable",
     "extra": {
