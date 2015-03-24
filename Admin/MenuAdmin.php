@@ -12,6 +12,7 @@ use Id4v\Bundle\MenuBundle\Entity\MenuItem;
 
 class MenuAdmin extends Admin
 {
+    protected $baseNamePattern = 'menu';
 
     protected $baseRoutePattern = 'menu';
 
