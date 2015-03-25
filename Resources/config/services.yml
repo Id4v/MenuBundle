@@ -8,6 +8,6 @@ services:
 
     id4v_bundle.menubundle.twig.menu_extension:
         class: Id4v\Bundle\MenuBundle\Twig\MenuExtension
-        arguments: [ @doctrine ]
+        arguments: [ @doctrine, @router.default ]
         tags:
             - { name: twig.extension }

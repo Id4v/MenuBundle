@@ -11,14 +11,18 @@ namespace Id4v\Bundle\MenuBundle\Twig;
 
 use Id4v\Bundle\MenuBundle\Entity\MenuItem;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+use Symfony\Component\Routing\RouterInterface;
 
 class MenuExtension extends \Twig_Extension {
 
     protected $doctrine;
 
-    function __construct(RegistryInterface $doctrine)
+    protected $router;
+
+    function __construct(RegistryInterface $doctrine,RouterInterface $router)
     {
         $this->doctrine=$doctrine;
+        $this->router=$router;
     }
 
     public function getFunctions()
@@ -97,9 +101,16 @@ class MenuExtension extends \Twig_Extension {
                 $html.=$newLine.$rootOpen;
             }
 
+            $url=$this->router->getContext()->getBaseUrl();
+            if(strpos($item->getUrl(),"http://")!==false || strpos($item->getUrl(),"https://")!==false){
+                $url=$item->getUrl();
+            }else{
+                $url.=$item->getUrl();
+            }
+
 
             $html.=$newLine.$leafOpen.
-              "<a target='".$item->getTarget()."' href='".$item->getUrl()."' class='".$linkClasses." menu-item-lvl-".$item->getDepth()."'>".$item->getTitle()."</a>";
+              "<a target='".$item->getTarget()."' href='".$url."' class='".$linkClasses." menu-item-lvl-".$item->getDepth()."'>".$item->getTitle()."</a>";
 
             $depth=$item->getDepth();
         }
