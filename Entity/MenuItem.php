@@ -60,7 +60,7 @@ class MenuItem
      * @var integer
      * @ORM\Column(name="depth", type="integer", nullable=false)
      */
-    private $depth = 0;
+    private $depth = 1;
 
     /**
      * @Gedmo\SortableGroup
@@ -329,7 +329,7 @@ class MenuItem
     public function updateDepth() {
 
         $item = $this;
-        $depth = 0;
+        $depth = 1;
 
         while($item->parent != null) {
             $depth++;
