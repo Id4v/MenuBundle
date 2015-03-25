@@ -18,7 +18,13 @@ class MenuItemType extends AbstractType
             ->add('title')
             ->add('url')
             ->add('active',null,array("required"=>false))
-            ->add('target')
+            ->add('target',"choice",array(
+                "label"=>"Ouverture",
+                "choices"=>array(
+                    "_self"=>"Meme fenetre",
+                    "_target"=>"Nouvelle fenetre"
+                )
+            ))
         ;
     }
     
@@ -37,6 +43,6 @@ class MenuItemType extends AbstractType
      */
     public function getName()
     {
-        return 'overscan_bundle_menubundle_menuitem';
+        return 'id4v_bundle_menubundle_menuitem';
     }
 }

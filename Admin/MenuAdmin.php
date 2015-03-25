@@ -29,6 +29,10 @@ class MenuAdmin extends Admin
     }
 
 
+
+
+
+
     /**
      * @param DatagridMapper $datagridMapper
      */
@@ -46,6 +50,7 @@ class MenuAdmin extends Admin
     {
         $listMapper
             ->add('name')
+            ->add("slug")
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'arrange'=> array(
@@ -66,6 +71,10 @@ class MenuAdmin extends Admin
         $formMapper
             ->add('name',null,array("label"=>"Nom du menu"))
         ;
+
+        if($this->id($this->getSubject())){
+            $formMapper->add("slug","text",array("read_only"=>true,"required"=>false));
+        }
     }
 
     /**

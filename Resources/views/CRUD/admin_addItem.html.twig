@@ -5,9 +5,13 @@
 {% endblock %}
 
 {% block sonata_admin_content %}
-
+    <style>
+        .required:after{
+            content:"";
+        }
+    </style>
     {{ parent() }}
-    {{ form_start(form) }}
+    {{ form_start(form,{"attr":{"class":"form"}}) }}
     {{ form_errors(form) }}
 
     <div class="form-group">
@@ -33,8 +37,13 @@
         {{ form_errors(form.active) }}
         {{ form_widget(form.active,{'attr': {'class':"form-control"}}) }}
     </div>
-
-    <input type="submit" />
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-3 col-md-offset-3">
+                <input type="submit" class="btn btn-success"/>
+            </div>
+        </div>
+    </div>
 
     {{ form_end(form) }}
 
