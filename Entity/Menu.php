@@ -4,12 +4,11 @@ namespace Id4v\Bundle\MenuBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-use Id4v\Bundle\MenuBundle\Entity\MenuItem;
 
 /**
  * Menu
  *
- * @ORM\Table()
+ * @ORM\Table("menu__menu")
  * @ORM\Entity(repositoryClass="Id4v\Bundle\MenuBundle\Entity\MenuRepository")
  */
 class Menu
@@ -46,7 +45,7 @@ class Menu
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -56,7 +55,7 @@ class Menu
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string $name
      * @return Menu
      */
     public function setName($name)
@@ -69,7 +68,7 @@ class Menu
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -79,7 +78,7 @@ class Menu
     /**
      * Set slug
      *
-     * @param string $slug
+     * @param  string $slug
      * @return Menu
      */
     public function setSlug($slug)
@@ -92,7 +91,7 @@ class Menu
     /**
      * Get slug
      *
-     * @return string 
+     * @return string
      */
     public function getSlug()
     {
@@ -109,12 +108,13 @@ class Menu
     /**
      * Add items
      *
-     * @param \Id4v\Bundle\MenuBundle\Entity\MenuItem $items
+     * @param  \Id4v\Bundle\MenuBundle\Entity\MenuItem $items
      * @return Menu
      */
-    public function addItem(\Id4v\Bundle\MenuBundle\Entity\MenuItem $items)
+    public function addItem(\Id4v\Bundle\MenuBundle\Entity\MenuItem $item)
     {
-        $this->items[] = $items;
+        $item->setMenu($this);
+        $this->items[] = $item;
 
         return $this;
     }
@@ -132,25 +132,28 @@ class Menu
     /**
      * Get items
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getItems()
     {
         return $this->items;
     }
 
-    function __toString()
+    public function __toString()
     {
         return $this->name."";
     }
 
-    public function getHierarchy($activeOnly=true){
-        $retour=array();
-        $items=$this->getItems();
-        foreach($items as $item){
-            if($item->getParent()==null)
-                $this->getHierarchyFromNode($item,$retour,$activeOnly);
+    public function getHierarchy($activeOnly = true)
+    {
+        $retour = array();
+        $items = $this->getItems();
+        foreach ($items as $item) {
+            if ($item->getParent() == null) {
+                $this->getHierarchyFromNode($item, $retour, $activeOnly);
+            }
         }
+
         return $retour;
     }
 
@@ -159,15 +162,16 @@ class Menu
      * @param $retour
      * @param $activeOnly
      */
-    public function getHierarchyFromNode($node,&$retour,$activeOnly){
-        if(!$node->getActive() && $activeOnly){
+    public function getHierarchyFromNode($node, &$retour, $activeOnly)
+    {
+        if (!$node->getActive() && $activeOnly) {
             return;
         }
 
-        $retour[]=$node;
-        if($node->hasChildren()){
-            foreach($node->getChildren() as $child) {
-                $this->getHierarchyFromNode($child, $retour,$activeOnly);
+        $retour[] = $node;
+        if ($node->hasChildren()) {
+            foreach ($node->getChildren() as $child) {
+                $this->getHierarchyFromNode($child, $retour, $activeOnly);
             }
         }
     }

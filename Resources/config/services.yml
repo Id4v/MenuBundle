@@ -5,11 +5,6 @@ services:
             - { name: doctrine.event_subscriber, connection: default }
         calls:
             - [ setAnnotationReader, [ @annotation_reader ] ]
-    id4v_menu.admin.menu:
-        class: Id4v\Bundle\MenuBundle\Admin\MenuAdmin
-        arguments: [~, Id4v\Bundle\MenuBundle\Entity\Menu, Id4vMenuBundle:MenuAdmin]
-        tags:
-            - {name: sonata.admin, manager_type: orm, group: Contenus, label: Menu}
 
     id4v_bundle.menubundle.twig.menu_extension:
         class: Id4v\Bundle\MenuBundle\Twig\MenuExtension
