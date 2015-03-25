@@ -47,7 +47,7 @@ class MenuAdminController extends Controller
         }
         $em->flush();
         $request->getSession()->getFlashBag()->add("success","Menu modifié");
-        return $this->redirect($this->generateUrl('admin_overscan_menu_menu_organize',array("id"=>$request->get("id"))));
+        return $this->redirect($this->generateUrl('admin_id4v_menu_menu_organize',array("id"=>$request->get("id"))));
     }
 
     public function addItemAction(Request $request){
@@ -76,7 +76,7 @@ class MenuAdminController extends Controller
 
                 $request->getSession()->getFlashBag()->add("success","Elément ajouté au Menu");
 
-                return $this->redirect($this->generateUrl('admin_overscan_menu_menu_organize',array("id"=>$idMenu)));
+                return $this->redirect($this->generateUrl('admin_id4v_menu_menu_organize',array("id"=>$idMenu)));
             }
         }
 
@@ -94,7 +94,7 @@ class MenuAdminController extends Controller
             $em->flush();
             $request->getSession()->getFlashBag()->add("success","Elément ajouté au Menu");
 
-            return $this->redirect($this->generateUrl('admin_overscan_menu_menu_organize',array("id"=>$idMenu)));
+            return $this->redirect($this->generateUrl('admin_id4v_menu_menu_organize',array("id"=>$idMenu)));
         }
 
         return $this->render("Id4vMenuBundle:CRUD:admin_delItem.html.twig",array("item"=>$item));
@@ -117,7 +117,7 @@ class MenuAdminController extends Controller
 
                 $request->getSession()->getFlashBag()->add("success","Elément ajouté au Menu");
 
-                return $this->redirect($this->generateUrl('admin_overscan_menu_menu_organize',array("id"=>$idMenu)));
+                return $this->redirect($this->generateUrl('admin_id4v_menu_menu_organize',array("id"=>$idMenu)));
             }
         }
         return $this->render("Id4vMenuBundle:CRUD:admin_addItem.html.twig",array("form"=>$form->createView()));
