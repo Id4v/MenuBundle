@@ -1,3 +1,0 @@
-overscan_menu_homepage:
-    path:     /menu
-    defaults: { _controller: Id4vMenuBundle:Default:index }
