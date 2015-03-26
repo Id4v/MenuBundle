@@ -3,6 +3,7 @@
     "type": "symfony-bundle",
     "description": "Menu Bundle that allows you to create menus, and manage them easily",
     "keywords": ["Menu","menu generator"],
+    "license": "MIT",
     "require": {
         "sonata-project/admin-bundle": "~2.3",
         "gedmo/doctrine-extensions": "2.3.*"
