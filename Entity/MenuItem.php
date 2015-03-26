@@ -331,7 +331,7 @@ class MenuItem
         $item = $this;
         $depth = 1;
 
-        while($item->parent != null) {
+        while($item->parent !== null) {
             $depth++;
             $item = $item->parent;
         }

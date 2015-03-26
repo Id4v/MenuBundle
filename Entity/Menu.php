@@ -149,7 +149,7 @@ class Menu
         $retour = array();
         $items = $this->getItems();
         foreach ($items as $item) {
-            if ($item->getParent() == null) {
+            if ($item->getParent() === null) {
                 $this->getHierarchyFromNode($item, $retour, $activeOnly);
             }
         }
@@ -162,7 +162,7 @@ class Menu
      * @param $retour
      * @param $activeOnly
      */
-    public function getHierarchyFromNode($node, &$retour, $activeOnly)
+    public function getHierarchyFromNode(MenuItem $node, &$retour, $activeOnly)
     {
         if (!$node->getActive() && $activeOnly) {
             return;

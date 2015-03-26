@@ -249,7 +249,7 @@ Drupal.tableDrag.prototype.showColumns = function () {
     expires: 365
   });
   // Trigger an event to allow other scripts to react to this display change.
-  $(this.table).trigger('columnschange', 'show'); // @todo Cache $(this.table)
+  $(this.table).trigger('columnschange', 'show');
 };
 
 /**
@@ -1009,9 +1009,9 @@ Drupal.tableDrag.prototype.row.prototype.isValidSwap = function (row) {
  *   DOM element what will be swapped with the row group.
  */
 Drupal.tableDrag.prototype.row.prototype.swap = function (position, row) {
-  // @todo Drupal.detachBehaviors(this.group, Drupal.settings, 'move');
+
   $(row)[position](this.group);
-  // @todo Drupal.attachBehaviors(this.group, Drupal.settings);
+
   this.changed = true;
   this.onSwap(row);
 };
@@ -1172,7 +1172,6 @@ Drupal.tableDrag.prototype.row.prototype.onSwap = function (swappedRow) {
 /**
  * Dummy implementation of Drupal.t(). 
  * The Drupal.t() function is Drupal's localization function.
- * @todo - use in the future to localize the plugin.
  */
 Drupal.t = function(string) {
   return string;
