@@ -157,6 +157,16 @@ class Menu
         return $retour;
     }
 
+    public function getFirstLevelItems($activeOnly = true){
+        $retour=array();
+        foreach($this->getItems() as $item){
+            if($item->getDepth()==1){
+                $retour[]=$item;
+            }
+        }
+        return $retour;
+    }
+
     /**
      * @param MenuItem $node
      * @param $retour
