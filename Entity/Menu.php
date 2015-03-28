@@ -161,7 +161,9 @@ class Menu
         $retour=array();
         foreach($this->getItems() as $item){
             if($item->getDepth()==1){
-                $retour[]=$item;
+                if($activeOnly && $item->getActive()){
+                    $retour[]=$item;
+                }
             }
         }
         return $retour;

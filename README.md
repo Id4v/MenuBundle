@@ -45,14 +45,10 @@ public function registerBundles()
 
 **Render your Menu in twig templates like this**
 ```twig
-{{ render_menu("menu-principal",{"linkClasses":"button hvr-rectangle-out AnimMenu"}) }}
+{{ render_menu("menu-principal",{template: "Id4vMenuBundle:Block:menu.html.twig"}) }}
 ```
 Options to this functions are :
-* rootOpen : Markup to use when opening a root node
-* rootClose : Markup to use when closing a root node
-* leafOpen : Markup to use when opening a leaf node
-* leafClode : Markup to use when closing a leaf node
-* linkClasses : CSS classes applied on the link in the MenuItem
+* template:  the template you want to use to render the menu *(default is "Id4vMenuBundle:Block:menu.html.twig")
 
 
 

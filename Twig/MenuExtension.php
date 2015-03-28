@@ -9,7 +9,6 @@
 namespace Id4v\Bundle\MenuBundle\Twig;
 
 
-use Id4v\Bundle\MenuBundle\Entity\MenuItem;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 use Symfony\Component\Routing\RouterInterface;
 use Twig_Environment;
@@ -54,28 +53,14 @@ class MenuExtension extends \Twig_Extension {
      * Render the menu given the machine_name
      * You can specify the markup to use in the options
      * Defaults:
-     *  * rootOpen : <ul class="menu-list">
-     *  * rootClose : </ul>
-     *  * leafOpen : <li class="menu-item">
-     *  * leafClose : </li>
-     *  * linkClasses : menu-link
+     *  * template : "Id4vMenuBundle:Block:menu.html.twig"
      * @param $machineName
      * @param $options
      * @return string
      */
     public function renderMenu($machineName,$options=array()){
+        $template="Id4vMenuBundle:Block:menu.html.twig";
 
-        $newLine="\n";
-
-        $rootOpen="<ul class='menu-list'>";
-        $leafOpen="<li class='menu-item'>";
-        $rootClose="</ul>";
-        $leafClose="</li>";
-        $linkClasses="menu-link";
-
-        $html="";
-
-        $depth=0;
 
         foreach($options as $key=>$value){
             $$key=$value;
@@ -88,7 +73,7 @@ class MenuExtension extends \Twig_Extension {
         }
         $items=$menu->getFirstLevelItems();
 
-        return $this->env->render("Id4vMenuBundle:Block:menu.html.twig",array("items"=>$items));
+        return $this->env->render($template,array("items"=>$items));
     }
 
 
