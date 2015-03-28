@@ -1,3 +1,5 @@
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/d95d8fb7-d620-4c20-a46c-5bb89cdb2a01/small.png)](https://insight.sensiolabs.com/projects/d95d8fb7-d620-4c20-a46c-5bb89cdb2a01)
+
 # MenuBundle
 Id4vMenuBundle is a Symfony2 bundle to manage menus easily
 
