@@ -48,7 +48,7 @@ public function registerBundles()
 {{ render_menu("menu-principal",{template: "Id4vMenuBundle:Block:menu.html.twig"}) }}
 ```
 Options to this functions are :
-* template:  the template you want to use to render the menu *(default is "Id4vMenuBundle:Block:menu.html.twig")
+* template:  the template you want to use to render the menu *(default is "Id4vMenuBundle:Block:menu.html.twig")*
 
 
 
