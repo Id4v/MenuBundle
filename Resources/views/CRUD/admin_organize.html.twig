@@ -1,7 +1,11 @@
-{% extends "SonataAdminBundle::standard_layout.html.twig" %}
+{% extends base_template %}
 
 {% block tab_menu %}
-    <h2>Editer le menu &laquo;{{ menu.name }}&raquo;</h2>
+    Editer le menu &laquo;{{ menu.name }}&raquo;
+{% endblock %}
+
+{% block navbar_title %}
+    {{ block('title') }}
 {% endblock %}
 
 {% block javascripts %}
@@ -20,57 +24,61 @@
     {{ parent() }}
     <div class="row">
         <div id="menuTree" class="col-md-10">
-            <form action="{{ admin.generateObjectUrl('updateItems', menu) }}" method="post">
-                <div class="row">
-                    <input class="col-md-2 pull-right btn btn-default" type="submit" value="Valider les modifications"/>
-                </div>
-                <div class="row"><p></p></div>
-                <div class="row">
-                    <table id="table-tree" class="table table-bordered table-striped">
-                        <thead>
-                        <tr>
-                            <th>Titre</th>
-                            <th>Ordre</th>
-                            <th>Parent</th>
-                            <th>Actions</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {% for form in forms %}
-                            <tr class="draggable">
-                                <td class="sonata-ba-list-field">
-                                    {{ form.vars.value }}
-                                    {{ form_widget(form.id,{"attr":{"class":"item-id"}}) }}
-                                    {{ form_widget(form.depth,{"attr":{"class":"item-depth"}}) }}
-                                </td>
-                                <td class="sonata-ba-list-field">
-                                    {{ form_widget(form.position,{"attr":{"class":"item-position"}}) }}
-                                </td>
-                                <td class="sonata-ba-list-field">
-                                    {{ form_widget(form.parent,{"attr":{"class":"item-parent"}}) }}
-                                </td>
-                                <td>
-                                    <a class="btn btn-default edit_link" href="{{ admin.generateUrl('editItem',{'id':form.vars.data.id}) }}">
-                                        <i class="glyphicon glyphicon-edit"></i>
-                                        Editer
-                                    </a>
-                                    <a class="btn btn-default delete_link" href="{{ admin.generateUrl('deleteItem',{'id':form.vars.data.id}) }}">
-                                        <i class="glyphicon glyphicon-remove"></i>
-                                        Supprimer
-                                    </a>
-                                </td>
+            <div class="col-xs-12">
+                <form action="{{ admin.generateObjectUrl('updateItems', menu) }}" method="post">
+                    <div class="row">
+                        <input class="col-md-2 pull-right btn btn-default" type="submit" value="Valider les modifications"/>
+                    </div>
+                    <div class="row"><p></p></div>
+                    <div class="row">
+                        <table id="table-tree" class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th>Titre</th>
+                                <th>Ordre</th>
+                                <th>Parent</th>
+                                <th>Actions</th>
                             </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-                <div class="row">
-                    <input class="col-md-2 pull-right btn btn-default" type="submit" value="Valider les modifications"/>
-                </div>
-            </form>
+                            </thead>
+                            <tbody>
+                            {% for form in forms %}
+                                <tr class="draggable">
+                                    <td class="sonata-ba-list-field">
+                                        {{ form.vars.value }}
+                                        {{ form_widget(form.id,{"attr":{"class":"item-id"}}) }}
+                                        {{ form_widget(form.depth,{"attr":{"class":"item-depth"}}) }}
+                                    </td>
+                                    <td class="sonata-ba-list-field">
+                                        {{ form_widget(form.position,{"attr":{"class":"item-position"}}) }}
+                                    </td>
+                                    <td class="sonata-ba-list-field">
+                                        {{ form_widget(form.parent,{"attr":{"class":"item-parent"}}) }}
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-default edit_link" href="{{ admin.generateUrl('editItem',{'id':form.vars.data.id}) }}">
+                                            <i class="glyphicon glyphicon-edit"></i>
+                                            Editer
+                                        </a>
+                                        <a class="btn btn-default delete_link" href="{{ admin.generateUrl('deleteItem',{'id':form.vars.data.id}) }}">
+                                            <i class="glyphicon glyphicon-remove"></i>
+                                            Supprimer
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <input class="col-md-2 pull-right btn btn-default" type="submit" value="Valider les modifications"/>
+                    </div>
+                </form>
+            </div>
         </div>
         <div class="col-md-2">
-            <a class="btn btn-default" href="{{ admin.generateObjectUrl('addItem', menu) }}">Ajouter une élément au menu</a>
+            <div class="col-xs-12">
+                <a class="btn btn-default" href="{{ admin.generateObjectUrl('addItem', menu) }}">Ajouter une élément au menu</a>
+            </div>
         </div>
     </div>
     <script type="text/javascript">

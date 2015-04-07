@@ -53,7 +53,7 @@ class MenuAdmin extends Admin
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'arrange'=> array(
-                        "template"=>"Id4vMenuBundle:CRUD:list__action_arrange.html.twig"
+                        "template"=>"Id4vMenuBundle:CRUD:list__action_organize.html.twig"
                     ),
                     'edit' => array(),
                     'delete' => array(),

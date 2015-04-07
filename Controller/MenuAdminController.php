@@ -24,7 +24,7 @@ class MenuAdminController extends Controller
             $forms[]=$form->createView();
         }
 
-        return $this->render("Id4vMenuBundle:CRUD:admin_arrange.html.twig",
+        return $this->render("Id4vMenuBundle:CRUD:admin_organize.html.twig",
           array(
             "menu"=>$menu,
             "forms"=>$forms
