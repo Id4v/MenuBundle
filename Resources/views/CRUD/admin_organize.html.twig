@@ -1,12 +1,5 @@
 {% extends base_template %}
 
-{% block tab_menu %}
-    Editer le menu &laquo;{{ menu.name }}&raquo;
-{% endblock %}
-
-{% block navbar_title %}
-    {{ block('title') }}
-{% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
@@ -20,17 +13,23 @@
     <link rel="stylesheet" href="{{ asset('bundles/id4vmenu/css/styles.css') }}"/>
 {% endblock %}
 
+{% block tab_menu %} {% endblock %}
+
+{% block tab_menu_navbar_header %}
+    <div class="navbar-header">
+        <span class="navbar-brand">Editer le menu "{{ menu.name }}"</span>
+    </div>
+{% endblock %}
+
 {% block sonata_admin_content %}
-    {{ parent() }}
     <div class="row">
-        <div id="menuTree" class="col-md-10">
-            <div class="col-xs-12">
-                <form action="{{ admin.generateObjectUrl('updateItems', menu) }}" method="post">
-                    <div class="row">
-                        <input class="col-md-2 pull-right btn btn-default" type="submit" value="Valider les modifications"/>
-                    </div>
-                    <div class="row"><p></p></div>
-                    <div class="row">
+        <div id="menuTree" class="col-md-9">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <h4 class="box-title">Edition</h4>
+                </div>
+                <div class="box-body no-padding">
+                <form id="organize" action="{{ admin.generateObjectUrl('updateItems', menu) }}" method="post">
                         <table id="table-tree" class="table table-bordered table-striped">
                             <thead>
                             <tr>
@@ -68,16 +67,23 @@
                             {% endfor %}
                             </tbody>
                         </table>
-                    </div>
-                    <div class="row">
-                        <input class="col-md-2 pull-right btn btn-default" type="submit" value="Valider les modifications"/>
-                    </div>
                 </form>
             </div>
+            </div>
         </div>
-        <div class="col-md-2">
-            <div class="col-xs-12">
-                <a class="btn btn-default" href="{{ admin.generateObjectUrl('addItem', menu) }}">Ajouter une élément au menu</a>
+        <div class="col-md-3">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <h4 class="box-title">Actions</h4>
+                </div>
+                <div class="box-body no-padding">
+                    <div style="padding: 20px 0 20px 20px;">
+                        <a class="btn btn-primary" href="{{ admin.generateObjectUrl('addItem', menu) }}">Ajouter une élément au menu</a>
+                    </div>
+                    <div style="padding: 0px 0 20px 20px;">
+                        <button id="fake_submit" class="btn btn-default">Valider les modifications</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -135,5 +141,16 @@
                     }
                 }
         );
+
+        var submit_button = $("#fake_submit");
+
+        $(document).bind('tabledrag:droprow', function() {
+            submit_button.removeClass("btn-default");
+            submit_button.addClass("btn-success");
+        });
+
+        submit_button.click(function() {
+            $("form#organize").submit();
+        });
     </script>
 {% endblock %}
