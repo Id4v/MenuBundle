@@ -6,14 +6,15 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * MenuItem
+ * MenuItem.
+ *
  * @ORM\Table("menu__menu_item")
  * @ORM\Entity(repositoryClass="Id4v\Bundle\MenuBundle\Entity\MenuItemRepository")
  */
 class MenuItem
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -36,7 +37,7 @@ class MenuItem
     private $url;
 
     /**
-     * @var boolean
+     * @var bool
      *
      * @ORM\Column(name="active", type="boolean")
      */
@@ -51,13 +52,14 @@ class MenuItem
 
     /**
      * @Gedmo\SortablePosition
-     * @var integer
+     *
+     * @var int
      * @ORM\Column(name="position", type="integer", nullable=false)
      */
     private $position;
 
     /**
-     * @var integer
+     * @var int
      * @ORM\Column(name="depth", type="integer", nullable=false)
      */
     private $depth = 1;
@@ -81,9 +83,9 @@ class MenuItem
     private $menu;
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -91,9 +93,10 @@ class MenuItem
     }
 
     /**
-     * Set title
+     * Set title.
      *
-     * @param  string   $title
+     * @param string $title
+     *
      * @return MenuItem
      */
     public function setTitle($title)
@@ -104,7 +107,7 @@ class MenuItem
     }
 
     /**
-     * Get title
+     * Get title.
      *
      * @return string
      */
@@ -114,9 +117,10 @@ class MenuItem
     }
 
     /**
-     * Set url
+     * Set url.
      *
-     * @param  string   $url
+     * @param string $url
+     *
      * @return MenuItem
      */
     public function setUrl($url)
@@ -127,7 +131,7 @@ class MenuItem
     }
 
     /**
-     * Get url
+     * Get url.
      *
      * @return string
      */
@@ -137,9 +141,10 @@ class MenuItem
     }
 
     /**
-     * Set active
+     * Set active.
      *
-     * @param  boolean  $active
+     * @param bool $active
+     *
      * @return MenuItem
      */
     public function setActive($active)
@@ -150,9 +155,9 @@ class MenuItem
     }
 
     /**
-     * Get active
+     * Get active.
      *
-     * @return boolean
+     * @return bool
      */
     public function getActive()
     {
@@ -160,9 +165,10 @@ class MenuItem
     }
 
     /**
-     * Set target
+     * Set target.
      *
-     * @param  array    $target
+     * @param array $target
+     *
      * @return MenuItem
      */
     public function setTarget($target)
@@ -173,7 +179,7 @@ class MenuItem
     }
 
     /**
-     * Get target
+     * Get target.
      *
      * @return array
      */
@@ -182,7 +188,7 @@ class MenuItem
         return $this->target;
     }
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -190,9 +196,10 @@ class MenuItem
     }
 
     /**
-     * Set parent
+     * Set parent.
      *
-     * @param  \Id4v\Bundle\MenuBundle\Entity\MenuItem $parent
+     * @param \Id4v\Bundle\MenuBundle\Entity\MenuItem $parent
+     *
      * @return MenuItem
      */
     public function setParent(\Id4v\Bundle\MenuBundle\Entity\MenuItem $parent = null)
@@ -204,7 +211,7 @@ class MenuItem
     }
 
     /**
-     * Get parent
+     * Get parent.
      *
      * @return \Id4v\Bundle\MenuBundle\Entity\MenuItem
      */
@@ -214,9 +221,10 @@ class MenuItem
     }
 
     /**
-     * Add children
+     * Add children.
      *
-     * @param  \Id4v\Bundle\MenuBundle\Entity\MenuItem $children
+     * @param \Id4v\Bundle\MenuBundle\Entity\MenuItem $children
+     *
      * @return MenuItem
      */
     public function addChild(\Id4v\Bundle\MenuBundle\Entity\MenuItem $children)
@@ -230,7 +238,7 @@ class MenuItem
     }
 
     /**
-     * Remove children
+     * Remove children.
      *
      * @param \Id4v\Bundle\MenuBundle\Entity\MenuItem $children
      */
@@ -240,7 +248,7 @@ class MenuItem
     }
 
     /**
-     * Get children
+     * Get children.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -250,9 +258,10 @@ class MenuItem
     }
 
     /**
-     * Set menu
+     * Set menu.
      *
-     * @param  \Id4v\Bundle\MenuBundle\Entity\Menu $menu
+     * @param \Id4v\Bundle\MenuBundle\Entity\Menu $menu
+     *
      * @return MenuItem
      */
     public function setMenu(\Id4v\Bundle\MenuBundle\Entity\Menu $menu = null)
@@ -263,7 +272,7 @@ class MenuItem
     }
 
     /**
-     * Get menu
+     * Get menu.
      *
      * @return \Id4v\Bundle\MenuBundle\Entity\Menu
      */
@@ -274,13 +283,14 @@ class MenuItem
 
     public function __toString()
     {
-        return $this->title."";
+        return $this->title.'';
     }
 
     /**
-     * Set position
+     * Set position.
      *
-     * @param  integer  $position
+     * @param int $position
+     *
      * @return MenuItem
      */
     public function setPosition($position)
@@ -291,9 +301,9 @@ class MenuItem
     }
 
     /**
-     * Get position
+     * Get position.
      *
-     * @return integer
+     * @return int
      */
     public function getPosition()
     {
@@ -301,9 +311,10 @@ class MenuItem
     }
 
     /**
-     * Set depth
+     * Set depth.
      *
-     * @param  integer  $depth
+     * @param int $depth
+     *
      * @return MenuItem
      */
     public function setDepth($depth)
@@ -314,9 +325,9 @@ class MenuItem
     }
 
     /**
-     * Get depth
+     * Get depth.
      *
-     * @return integer
+     * @return int
      */
     public function getDepth()
     {
@@ -324,14 +335,14 @@ class MenuItem
     }
 
     /**
-     * Update the depth compared to the parent
+     * Update the depth compared to the parent.
      */
-    public function updateDepth() {
-
+    public function updateDepth()
+    {
         $item = $this;
         $depth = 1;
 
-        while($item->parent !== null) {
+        while ($item->parent !== null) {
             $depth++;
             $item = $item->parent;
         }

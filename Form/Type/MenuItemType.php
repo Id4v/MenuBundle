@@ -10,31 +10,31 @@ class MenuItemType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('title')
             ->add('url')
-            ->add('active',null,array("required"=>false))
-            ->add('target',"choice",array(
-                "label"=>"Ouverture",
-                "choices"=>array(
-                    "_self"=>"Meme fenetre",
-                    "_target"=>"Nouvelle fenetre"
-                )
+            ->add('active', null, array('required' => false))
+            ->add('target', 'choice', array(
+                'label' => 'Ouverture',
+                'choices' => array(
+                    '_self' => 'Meme fenetre',
+                    '_target' => 'Nouvelle fenetre',
+                ),
             ))
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Id4v\Bundle\MenuBundle\Entity\MenuItem'
+            'data_class' => 'Id4v\Bundle\MenuBundle\Entity\MenuItem',
         ));
     }
 
