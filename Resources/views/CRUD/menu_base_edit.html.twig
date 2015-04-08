@@ -1,0 +1,22 @@
+{% extends base_template %}
+
+{% block tab_menu %} {% endblock %}
+
+{% block sonata_admin_content %}
+
+    <div class="box box-success">
+        <div class="box-header">
+            <h3 class="box-title">Lien</h3>
+        </div>
+        <div class="box-body">
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+            {{ form_rest(form) }}
+        </div>
+        <div class="box-footer clearfix">
+            <input type="submit" class="btn btn-success"/>
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+{% endblock %}

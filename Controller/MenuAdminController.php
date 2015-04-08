@@ -24,7 +24,7 @@ class MenuAdminController extends Controller
             $forms[]=$form->createView();
         }
 
-        return $this->render("Id4vMenuBundle:CRUD:admin_organize.html.twig",
+        return $this->render("Id4vMenuBundle:CRUD:menu_organize_element.html.twig",
           array(
             "menu"=>$menu,
             "forms"=>$forms
@@ -75,7 +75,7 @@ class MenuAdminController extends Controller
                 return $this->redirect($this->generateUrl('admin_id4v_menu_menu_organize',array("id"=>$idMenu)));
             }
         }
-        return $this->render("Id4vMenuBundle:CRUD:admin_addItem.html.twig",array("form"=>$form->createView()));
+        return $this->render("Id4vMenuBundle:CRUD:menu_add_element.html.twig",array("form"=>$form->createView()));
     }
 
     public function deleteItemAction(Request $request){
@@ -92,7 +92,7 @@ class MenuAdminController extends Controller
             return $this->redirect($this->generateUrl('admin_id4v_menu_menu_organize',array("id"=>$idMenu)));
         }
 
-        return $this->render("Id4vMenuBundle:CRUD:admin_delItem.html.twig",array("item"=>$item));
+        return $this->render("Id4vMenuBundle:CRUD:menu_delete_element.html.twig",array("item"=>$item));
     }
 
     public function editItemAction(Request $request){
@@ -115,6 +115,6 @@ class MenuAdminController extends Controller
                 return $this->redirect($this->generateUrl('admin_id4v_menu_menu_organize',array("id"=>$idMenu)));
             }
         }
-        return $this->render("Id4vMenuBundle:CRUD:admin_addItem.html.twig",array("form"=>$form->createView()));
+        return $this->render("Id4vMenuBundle:CRUD:menu_edit_element.html.twig",array("form"=>$form->createView()));
     }
 }
