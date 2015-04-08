@@ -8,6 +8,5 @@ class DefaultControllerTest extends WebTestCase
 {
     public function testIndex()
     {
-        
     }
 }

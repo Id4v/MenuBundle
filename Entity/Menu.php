@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * Menu
+ * Menu.
  *
  * @ORM\Table("menu__menu")
  * @ORM\Entity(repositoryClass="Id4v\Bundle\MenuBundle\Entity\MenuRepository")
@@ -14,7 +14,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 class Menu
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -43,9 +43,9 @@ class Menu
     private $items;
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -53,9 +53,10 @@ class Menu
     }
 
     /**
-     * Set name
+     * Set name.
      *
-     * @param  string $name
+     * @param string $name
+     *
      * @return Menu
      */
     public function setName($name)
@@ -66,7 +67,7 @@ class Menu
     }
 
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */
@@ -76,9 +77,10 @@ class Menu
     }
 
     /**
-     * Set slug
+     * Set slug.
      *
-     * @param  string $slug
+     * @param string $slug
+     *
      * @return Menu
      */
     public function setSlug($slug)
@@ -89,7 +91,7 @@ class Menu
     }
 
     /**
-     * Get slug
+     * Get slug.
      *
      * @return string
      */
@@ -98,7 +100,7 @@ class Menu
         return $this->slug;
     }
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -106,9 +108,10 @@ class Menu
     }
 
     /**
-     * Add items
+     * Add items.
      *
-     * @param  \Id4v\Bundle\MenuBundle\Entity\MenuItem $items
+     * @param \Id4v\Bundle\MenuBundle\Entity\MenuItem $items
+     *
      * @return Menu
      */
     public function addItem(\Id4v\Bundle\MenuBundle\Entity\MenuItem $item)
@@ -120,7 +123,7 @@ class Menu
     }
 
     /**
-     * Remove items
+     * Remove items.
      *
      * @param \Id4v\Bundle\MenuBundle\Entity\MenuItem $items
      */
@@ -130,7 +133,7 @@ class Menu
     }
 
     /**
-     * Get items
+     * Get items.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -141,7 +144,7 @@ class Menu
 
     public function __toString()
     {
-        return $this->name."";
+        return $this->name.'';
     }
 
     public function getHierarchy($activeOnly = true)
@@ -157,15 +160,17 @@ class Menu
         return $retour;
     }
 
-    public function getFirstLevelItems($activeOnly = true){
-        $retour=array();
-        foreach($this->getItems() as $item){
-            if($item->getDepth()==1){
-                if($activeOnly && $item->getActive()){
-                    $retour[]=$item;
+    public function getFirstLevelItems($activeOnly = true)
+    {
+        $retour = array();
+        foreach ($this->getItems() as $item) {
+            if ($item->getDepth() == 1) {
+                if ($activeOnly && $item->getActive()) {
+                    $retour[] = $item;
                 }
             }
         }
+
         return $retour;
     }
 

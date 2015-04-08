@@ -21,16 +21,11 @@ class MenuAdmin extends Admin
     protected function configureRoutes(RouteCollection $collection)
     {
         $collection->add('organize', $this->getRouterIdParameter().'/organiser');
-        $collection->add('addItem',$this->getRouterIdParameter().'/add_item');
-        $collection->add('updateItems',$this->getRouterIdParameter().'/update_items');
-        $collection->add('editItem',$this->getRouterIdParameter().'/edit_item');
-        $collection->add('deleteItem',$this->getRouterIdParameter().'/delete_item');
+        $collection->add('addItem', $this->getRouterIdParameter().'/add_item');
+        $collection->add('updateItems', $this->getRouterIdParameter().'/update_items');
+        $collection->add('editItem', $this->getRouterIdParameter().'/edit_item');
+        $collection->add('deleteItem', $this->getRouterIdParameter().'/delete_item');
     }
-
-
-
-
-
 
     /**
      * @param DatagridMapper $datagridMapper
@@ -49,15 +44,15 @@ class MenuAdmin extends Admin
     {
         $listMapper
             ->add('name')
-            ->add("slug")
+            ->add('slug')
             ->add('_action', 'actions', array(
                 'actions' => array(
-                    'arrange'=> array(
-                        "template"=>"Id4vMenuBundle:CRUD:list__action_organize.html.twig"
+                    'arrange' => array(
+                        'template' => 'Id4vMenuBundle:CRUD:list__action_organize.html.twig',
                     ),
                     'edit' => array(),
                     'delete' => array(),
-                )
+                ),
             ))
         ;
     }
@@ -68,11 +63,11 @@ class MenuAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('name',null,array("label"=>"Nom du menu"))
+            ->add('name', null, array('label' => 'Nom du menu'))
         ;
 
-        if($this->id($this->getSubject())){
-            $formMapper->add("slug","text",array("read_only"=>true,"required"=>false));
+        if ($this->id($this->getSubject())) {
+            $formMapper->add('slug', 'text', array('read_only' => true, 'required' => false));
         }
     }
 
@@ -106,6 +101,4 @@ class MenuAdmin extends Admin
 
         return $retour;
     }*/
-
-
 }
