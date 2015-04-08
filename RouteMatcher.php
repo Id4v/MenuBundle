@@ -12,7 +12,6 @@ namespace Id4v\Bundle\MenuBundle;
 use Id4v\Bundle\MenuBundle\Entity\Menu;
 use Id4v\Bundle\MenuBundle\Entity\MenuItem;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\HttpFoundation\Request;
 
 class RouteMatcher
 {
