@@ -73,7 +73,7 @@ class MenuExtension extends \Twig_Extension
         }
         $items = $menu->getFirstLevelItems();
 
-        return $this->env->render($template, array('items' => $items,"matcher"=>$this->matcher));
+        return $this->env->render($template, array('items' => $items, 'matcher' => $this->matcher));
     }
 
     /**
