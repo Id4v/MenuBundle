@@ -54,14 +54,16 @@
                                         {{ form_widget(form.parent,{"attr":{"class":"item-parent"}}) }}
                                     </td>
                                     <td>
-                                        <a class="btn btn-default edit_link" href="{{ admin.generateUrl('editItem',{'id':form.vars.data.id}) }}">
-                                            <i class="glyphicon glyphicon-edit"></i>
-                                            Editer
-                                        </a>
-                                        <a class="btn btn-default delete_link" href="{{ admin.generateUrl('deleteItem',{'id':form.vars.data.id}) }}">
-                                            <i class="glyphicon glyphicon-remove"></i>
-                                            Supprimer
-                                        </a>
+                                        <div class="btn-group">
+                                            <a class="btn btn-default btn-sm edit_link" href="{{ admin.generateUrl('editItem',{'id':form.vars.data.id}) }}">
+                                                <i class="glyphicon glyphicon-edit"></i>
+                                                Editer
+                                            </a>
+                                            <a class="btn btn-default btn-sm delete_link" href="{{ admin.generateUrl('deleteItem',{'id':form.vars.data.id}) }}">
+                                                <i class="glyphicon glyphicon-remove"></i>
+                                                Supprimer
+                                            </a>
+                                        </div>
                                     </td>
                                 </tr>
                             {% endfor %}
