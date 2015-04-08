@@ -9,23 +9,23 @@
 
 namespace Id4v\Bundle\MenuBundle\Twig;
 
+use Id4v\Bundle\MenuBundle\RouteMatcher;
 use Symfony\Bridge\Doctrine\RegistryInterface;
-use Symfony\Component\Routing\RouterInterface;
 use Twig_Environment;
 
 class MenuExtension extends \Twig_Extension
 {
     protected $doctrine;
-    protected $router;
+    protected $matcher;
     /**
      * @var Twig_Environment
      */
     protected $env;
 
-    public function __construct(RegistryInterface $doctrine, RouterInterface $router)
+    public function __construct(RegistryInterface $doctrine, RouteMatcher $matcher)
     {
         $this->doctrine = $doctrine;
-        $this->router = $router;
+        $this->matcher = $matcher;
     }
 
     public function initRuntime(Twig_Environment $environment)
@@ -73,7 +73,7 @@ class MenuExtension extends \Twig_Extension
         }
         $items = $menu->getFirstLevelItems();
 
-        return $this->env->render($template, array('items' => $items));
+        return $this->env->render($template, array('items' => $items,"matcher"=>$this->matcher));
     }
 
     /**

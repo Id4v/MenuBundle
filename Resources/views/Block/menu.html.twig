@@ -48,9 +48,15 @@
 
 {% block itemAttributes %}
     {% spaceless %}
+        {% set classes="" %}
         {% if item.hasChildren %}
-            class="dropdown"
+            {% set classes = ("dropdown " ~ classes)%}
         {% endif %}
+
+        {% if matcher.isInActiveTree(item) %}
+            {% set classes = ("active " ~ classes)%}
+        {% endif %}
+        class="{{ classes|trim }}"
     {% endspaceless %}
 {% endblock %}
 

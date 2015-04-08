@@ -8,6 +8,9 @@ services:
 
     id4v_bundle.menubundle.twig.menu_extension:
         class: Id4v\Bundle\MenuBundle\Twig\MenuExtension
-        arguments: [ @doctrine, @router.default ]
+        arguments: [ @doctrine, @id4v_bundle.menubundle.router.matcher ]
         tags:
             - { name: twig.extension }
+    id4v_bundle.menubundle.router.matcher:
+        class: Id4v\Bundle\MenuBundle\RouteMatcher
+        arguments: [ @service_container ]
