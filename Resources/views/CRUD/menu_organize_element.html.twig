@@ -26,6 +26,11 @@
 {% endblock %}
 
 {% block sonata_admin_content %}
+
+    {% block notice %}
+        {% include 'SonataCoreBundle:FlashMessage:render.html.twig' %}
+    {% endblock notice %}
+
     <div class="row">
         <div id="menuTree" class="col-xs-12">
             <div class="box box-primary">
