@@ -2,18 +2,15 @@
 
 namespace Id4v\Bundle\MenuBundle\Controller;
 
-use Id4v\Bundle\MenuBundle\Form\Type\MenuItemOrderingType;
 use Sonata\AdminBundle\Controller\CRUDController as Controller;
+use Id4v\Bundle\MenuBundle\Form\Type\MenuItemOrderingType;
+use Id4v\Bundle\MenuBundle\Entity\Menu;
 use Symfony\Component\HttpFoundation\Request;
 
 class MenuAdminController extends Controller
 {
-    public function organizeAction(Request $request)
+    public function organizeAction(Menu $menu, Request $request)
     {
-        $idMenu = $request->get('id');
-
-        $menu = $this->getDoctrine()->getRepository('Id4vMenuBundle:Menu')->find($idMenu);
-
         $items = $menu->getHierarchy(false);
 
         $forms = array();
