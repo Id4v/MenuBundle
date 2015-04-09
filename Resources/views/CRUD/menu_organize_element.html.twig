@@ -20,7 +20,7 @@
     </div>
     <div class="container-fluid">
         <div class="navbar-form navbar-right">
-            <a class="btn btn-primary" href="{{ admin.generateObjectUrl('addItem', menu) }}">Ajouter une élément au menu</a>
+            <a class="btn btn-primary" href="{{ path('admin_id4v_menu_menu_menuitem_create',{'id':menu.id}) }}">Ajouter une élément au menu</a>
         </div>
     </div>
 {% endblock %}
@@ -62,11 +62,19 @@
                                     </td>
                                     <td>
                                         <div class="btn-group">
-                                            <a class="btn btn-default btn-sm edit_link" href="{{ admin.generateUrl('editItem',{'id':form.vars.data.id}) }}">
+                                            <a class="btn btn-default btn-sm edit_link"
+                                               href="{{ path('admin_id4v_menu_menu_menuitem_edit',{
+                                                   'id':menu.id,
+                                                   'childId':form.vars.data.id
+                                               }) }}">
                                                 <i class="glyphicon glyphicon-edit"></i>
                                                 Editer
                                             </a>
-                                            <a class="btn btn-default btn-sm delete_link" href="{{ admin.generateUrl('deleteItem',{'id':form.vars.data.id}) }}">
+                                            <a class="btn btn-default btn-sm delete_link"
+                                               href="{{ path('admin_id4v_menu_menu_menuitem_delete',{
+                                                   'id':menu.id,
+                                                   'childId':form.vars.data.id
+                                               }) }}">
                                                 <i class="glyphicon glyphicon-remove"></i>
                                                 Supprimer
                                             </a>
