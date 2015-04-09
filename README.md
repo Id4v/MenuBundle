@@ -17,12 +17,15 @@ MenuItems are
 composer require id4v/menu-bundle
 ```
 
-2 Activate the bundle in your AppKernel.php file
+2 Activate the bundle in your `AppKernel.php` file
 
 ```php
 public function registerBundles()
     {
         $bundles = array(
+        ...
+        # if you haven't already this bundle
+        new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
         ...
         new \Id4v\Bundle\MenuBundle\Id4vMenuBundle(),
         ...
@@ -30,9 +33,18 @@ public function registerBundles()
         return $bundles
     }
 ```
-3 Register the ```id4v_menu.admin.menu``` Service to your sonata admin configuration
+3 Add this mandatory configuration for the `StofDoctrineExtensionsBundle` in your `config.yml`
+```yml
+stof_doctrine_extensions:
+    orm:
+        default:
+            sortable: true
+```
 
-4 Profit!
+4 Register the `id4v_menu.admin.menu` Service to your sonata admin configuration
+
+5 Profit!
+
 
 ## Usage
 **Create your menu in the admin of your website.**
