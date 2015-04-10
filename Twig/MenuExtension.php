@@ -9,9 +9,8 @@
 
 namespace Id4v\Bundle\MenuBundle\Twig;
 
-use Id4v\Bundle\MenuBundle\RouteMatcher;
+use Id4v\Bundle\MenuBundle\Service\RouteMatcher;
 use Symfony\Bridge\Doctrine\RegistryInterface;
-use Twig_Environment;
 
 class MenuExtension extends \Twig_Extension
 {
@@ -31,7 +30,7 @@ class MenuExtension extends \Twig_Extension
         $this->matcher = $matcher;
     }
 
-    public function initRuntime(Twig_Environment $environment)
+    public function initRuntime(\Twig_Environment $environment)
     {
         $this->env = $environment;
     }

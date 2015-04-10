@@ -13,5 +13,5 @@ services:
             - { name: twig.extension }
 
     id4v_bundle.menubundle.router.matcher:
-        class: Id4v\Bundle\MenuBundle\RouteMatcher
+        class: Id4v\Bundle\MenuBundle\Service\RouteMatcher
         arguments: [ @request_stack ]

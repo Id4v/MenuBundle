@@ -7,7 +7,7 @@
  * Time: 21:49.
  */
 
-namespace Id4v\Bundle\MenuBundle;
+namespace Id4v\Bundle\MenuBundle\Service;
 
 use Id4v\Bundle\MenuBundle\Entity\Menu;
 use Id4v\Bundle\MenuBundle\Entity\MenuItem;
