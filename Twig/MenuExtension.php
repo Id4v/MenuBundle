@@ -16,7 +16,9 @@ use Twig_Environment;
 class MenuExtension extends \Twig_Extension
 {
     protected $doctrine;
+
     protected $matcher;
+
     /**
      * @var Twig_Environment
      */
@@ -25,6 +27,7 @@ class MenuExtension extends \Twig_Extension
     public function __construct(RegistryInterface $doctrine, RouteMatcher $matcher)
     {
         $this->doctrine = $doctrine;
+
         $this->matcher = $matcher;
     }
 

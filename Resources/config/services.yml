@@ -11,6 +11,7 @@ services:
         arguments: [ @doctrine, @id4v_bundle.menubundle.router.matcher ]
         tags:
             - { name: twig.extension }
+
     id4v_bundle.menubundle.router.matcher:
         class: Id4v\Bundle\MenuBundle\RouteMatcher
-        arguments: [ @service_container ]
+        arguments: [ @request_stack ]

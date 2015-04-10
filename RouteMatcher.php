@@ -11,21 +11,22 @@ namespace Id4v\Bundle\MenuBundle;
 
 use Id4v\Bundle\MenuBundle\Entity\Menu;
 use Id4v\Bundle\MenuBundle\Entity\MenuItem;
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 class RouteMatcher
 {
-    private $container;
-    private $activeTree;
+    protected $requestStack;
 
-    public function __construct(ContainerInterface $container)
+    protected $activeTree;
+
+    public function __construct(RequestStack $requestStack)
     {
-        $this->container = $container;
+        $this->requestStack = $requestStack;
     }
 
     protected function loadActiveTreeForMenu(Menu $menu)
     {
-        $urlCible = $this->container->get('request')->getPathInfo();
+        $urlCible = $this->requestStack->getCurrentRequest()->getPathInfo();
         foreach ($menu->getItems() as $item) {
             if ($item->getUrl() == $urlCible) {
                 $this->loadActiveTreeForItem($item);
