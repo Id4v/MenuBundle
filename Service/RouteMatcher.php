@@ -27,6 +27,9 @@ class RouteMatcher
     protected function loadActiveTreeForMenu(Menu $menu)
     {
         $urlCible = $this->requestStack->getCurrentRequest()->getPathInfo();
+
+        $this->activeTree = array();
+
         foreach ($menu->getItems() as $item) {
             if ($item->getUrl() == $urlCible) {
                 $this->loadActiveTreeForItem($item);
@@ -37,12 +40,10 @@ class RouteMatcher
 
     protected function loadActiveTreeForItem(MenuItem $item)
     {
-        $activeTree = array();
-        $activeTree[] = $item->getUrl();
+        $this->activeTree[] = $item->getUrl();
         while ($item = $item->getParent()) {
-            $activeTree[] = $item->getUrl();
+            $this->activeTree[] = $item->getUrl();
         }
-        $this->activeTree = $activeTree;
     }
 
     public function isInActiveTree(MenuItem $item)
