@@ -22,7 +22,7 @@ class MenuItemType extends AbstractType
                 'label' => 'Ouverture',
                 'choices' => array(
                     '_self' => 'Meme fenetre',
-                    '_target' => 'Nouvelle fenetre',
+                    '_blank' => 'Nouvelle fenetre',
                 ),
             ))
         ;
