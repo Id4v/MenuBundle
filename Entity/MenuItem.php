@@ -56,7 +56,7 @@ class MenuItem
      * @var int
      * @ORM\Column(name="position", type="integer", nullable=false)
      */
-    private $position;
+    private $position = -1;
 
     /**
      * @var int
