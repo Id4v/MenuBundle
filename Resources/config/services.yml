@@ -5,13 +5,3 @@ services:
             - { name: doctrine.event_subscriber, connection: default }
         calls:
             - [ setAnnotationReader, [ @annotation_reader ] ]
-
-    id4v_bundle.menubundle.twig.menu_extension:
-        class: Id4v\Bundle\MenuBundle\Twig\MenuExtension
-        arguments: [ @doctrine, @id4v_bundle.menubundle.router.matcher ]
-        tags:
-            - { name: twig.extension }
-
-    id4v_bundle.menubundle.router.matcher:
-        class: Id4v\Bundle\MenuBundle\Service\RouteMatcher
-        arguments: [ @request_stack ]
