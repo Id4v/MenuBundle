@@ -155,11 +155,11 @@ class MenuItem
     }
 
     /**
-     * Get active.
+     * Is active.
      *
      * @return bool
      */
-    public function getActive()
+    public function isActive()
     {
         return $this->active;
     }
