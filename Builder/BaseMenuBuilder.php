@@ -20,7 +20,7 @@ class BaseMenuBuilder {
         $this->em = $em;
     }
 
-    protected function generateMenu(&$node, $items)
+    protected function generateMenu($node, $items)
     {
         foreach ($items as $item)
         {
