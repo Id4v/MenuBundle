@@ -7,12 +7,17 @@
     "require": {
         "sonata-project/admin-bundle": "~2.3",
         "gedmo/doctrine-extensions": "2.3.*",
-        "stof/doctrine-extensions-bundle": "~1.1"
+        "stof/doctrine-extensions-bundle": "~1.1",
+        "knplabs/knp-menu-bundle": "~2"
     },
     "authors": [
         {
             "name": "David Rimbault",
             "email": "rimbault.david@gmail.com"
+        },
+        {
+            "name": "Jérémy Marodon",
+            "email": "marodon.jeremy@gmail.com"
         }
     ],
     "autoload": {
@@ -21,7 +26,7 @@
     "minimum-stability": "stable",
     "extra": {
         "branch-alias": {
-            "dev-master": "1.1.x-dev"
+            "dev-master": "2.0.x-dev"
         }
     }
 }

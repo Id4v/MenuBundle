@@ -165,7 +165,7 @@ class Menu
         $retour = array();
         foreach ($this->getItems() as $item) {
             if ($item->getDepth() == 1) {
-                if ($activeOnly && $item->getActive()) {
+                if ($activeOnly && $item->isActive()) {
                     $retour[] = $item;
                 }
             }
@@ -181,7 +181,7 @@ class Menu
      */
     public function getHierarchyFromNode(MenuItem $node, &$retour, $activeOnly)
     {
-        if (!$node->getActive() && $activeOnly) {
+        if (!$node->isActive() && $activeOnly) {
             return;
         }
 

@@ -48,7 +48,7 @@ class MenuItem
      *
      * @ORM\Column(name="target", type="string", length=255, nullable=true)
      */
-    private $target;
+    private $target = "_self";
 
     /**
      * @Gedmo\SortablePosition
@@ -155,11 +155,11 @@ class MenuItem
     }
 
     /**
-     * Get active.
+     * Is active.
      *
      * @return bool
      */
-    public function getActive()
+    public function isActive()
     {
         return $this->active;
     }
@@ -352,6 +352,6 @@ class MenuItem
 
     public function hasChildren()
     {
-        return count($this->children)>0;
+        return count($this->children) > 0;
     }
 }

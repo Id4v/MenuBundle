@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class MenuAdminController extends Controller
 {
-    public function organizeAction(Menu $menu, Request $request)
+    public function organizeAction(Menu $menu)
     {
         $items = $menu->getHierarchy(false);
 
