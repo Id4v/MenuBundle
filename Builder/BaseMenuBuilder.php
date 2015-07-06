@@ -5,8 +5,8 @@ namespace Id4v\Bundle\MenuBundle\Builder;
 use Knp\Menu\FactoryInterface;
 use Doctrine\ORM\EntityManager;
 
-class BaseMenuBuilder {
-
+class BaseMenuBuilder
+{
     protected $factory;
 
     protected $em;
@@ -22,13 +22,12 @@ class BaseMenuBuilder {
 
     protected function generateMenu($node, $items)
     {
-        foreach ($items as $item)
-        {
+        foreach ($items as $item) {
             $elem = $node->addChild($item->getTitle(), array(
                 'uri' => $item->getUrl(),
                 'linkAttributes' => array(
                     'target' => $item->getTarget(),
-                ))
+                ), )
             );
 
             if (!$item->isActive()) {
