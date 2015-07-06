@@ -32,7 +32,7 @@ class MenuItem
     /**
      * @var string
      *
-     * @ORM\Column(name="url", type="string", length=255)
+     * @ORM\Column(name="url", type="string", length=255, nullable=true)
      */
     private $url;
 
@@ -41,7 +41,7 @@ class MenuItem
      *
      * @ORM\Column(name="active", type="boolean")
      */
-    private $active = false;
+    private $active = true;
 
     /**
      * @var string
