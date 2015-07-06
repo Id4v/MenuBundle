@@ -41,7 +41,7 @@ class MenuItem
      *
      * @ORM\Column(name="active", type="boolean")
      */
-    private $active = false;
+    private $active = true;
 
     /**
      * @var string
