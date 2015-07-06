@@ -48,7 +48,7 @@ class MenuItem
      *
      * @ORM\Column(name="target", type="string", length=255, nullable=true)
      */
-    private $target = "_self";
+    private $target = '_self';
 
     /**
      * @Gedmo\SortablePosition

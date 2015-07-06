@@ -6,11 +6,11 @@ use Knp\Menu\ItemInterface;
 use Knp\Menu\Matcher\Voter\VoterInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 
-class UriVoter implements VoterInterface {
-
+class UriVoter implements VoterInterface
+{
     private $requestStack;
 
-    function __construct(RequestStack $requestStack)
+    public function __construct(RequestStack $requestStack)
     {
         $this->requestStack = $requestStack;
     }
@@ -18,14 +18,14 @@ class UriVoter implements VoterInterface {
     public function matchItem(ItemInterface $item)
     {
         if (null === $this->getRequestUri() || null === $item->getUri()) {
-            return null;
+            return;
         }
 
         if ($item->getUri() === $this->getRequestUri()) {
             return true;
         }
 
-        return null;
+        return;
     }
 
     private function getRequestUri()

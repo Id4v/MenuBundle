@@ -12,7 +12,8 @@ use Doctrine\ORM\EntityRepository;
  */
 class MenuItemRepository extends EntityRepository
 {
-    public function getRootNodesBySlug($slug) {
+    public function getRootNodesBySlug($slug)
+    {
         $query = $this->createQueryBuilder('item')
                 ->join('item.menu', 'menu')
                 ->where("menu.slug LIKE '".$slug."'")
