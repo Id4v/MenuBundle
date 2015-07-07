@@ -16,7 +16,7 @@ class MenuItemOrderingType extends AbstractType
     {
         $builder
           ->add('id', 'hidden')
-          ->add('position', 'choice', array('choices' => array(0, 1, 2, 3, 4, 5, 6), 'attr' => array('data-sonata-select2' => 'false')))
+          ->add('position', 'integer')
           ->add('depth', 'hidden')
           ->add('parent', null, array('attr' => array('data-sonata-select2' => 'false')))
         ;
