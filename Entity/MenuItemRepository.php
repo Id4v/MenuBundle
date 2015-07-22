@@ -17,7 +17,8 @@ class MenuItemRepository extends EntityRepository
         $query = $this->createQueryBuilder('item')
                 ->join('item.menu', 'menu')
                 ->where("menu.slug LIKE '".$slug."'")
-                ->andWhere('item.parent is null');
+                ->andWhere('item.parent is null')
+                ->orderBy('item.position', 'ASC');
 
         return $query->getQuery()->getResult();
     }

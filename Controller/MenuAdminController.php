@@ -9,9 +9,15 @@ use Symfony\Component\HttpFoundation\Request;
 
 class MenuAdminController extends Controller
 {
-    public function organizeAction(Menu $menu)
+    public function organizeAction(Request $request, Menu $menu)
     {
-        $items = $menu->getHierarchy(false);
+        $repo = $this->getDoctrine()->getManager()->getRepository('Id4vMenuBundle:MenuItem');
+
+        if ($node = $request->get('elem')) {
+            $items = $repo->find($node)->getChildren();
+        } else {
+            $items = $repo->getRootNodesBySlug($menu->getSlug());
+        }
 
         $forms = array();
         foreach ($items as $id => $item) {

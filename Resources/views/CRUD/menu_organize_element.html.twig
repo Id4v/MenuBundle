@@ -55,7 +55,7 @@
                             {% for form in forms %}
                                 <tr class="draggable">
                                     <td class="sonata-ba-list-field">
-                                        {{ form.vars.value }}
+                                        <a href="?elem={{ form.vars.data.id }}">{{ form.vars.value }}</a>
                                         {{ form_widget(form.id,{"attr":{"class":"item-id"}}) }}
                                         {{ form_widget(form.depth,{"attr":{"class":"item-depth"}}) }}
                                     </td>
