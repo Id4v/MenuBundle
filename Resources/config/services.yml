@@ -1,1 +1,5 @@
 services:
+    id4v.menu.manager:
+        class: Id4v\Bundle\MenuBundle\Manager\MenuManager
+        arguments: ['@form.factory']
+
