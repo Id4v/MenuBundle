@@ -19,9 +19,19 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder();
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+        $rootNode = $treeBuilder->root('id4v_menu');
+        $rootNode
+            ->children()
+                ->arrayNode('admin')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->integerNode('menu_depth')
+                        ->defaultValue('2')
+                        ->min(0)
+                        ->info('The depth of the tree in menu admin')
+                    ->end()
+                ->end()
+            ->end();
 
         return $treeBuilder;
     }

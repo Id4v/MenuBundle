@@ -147,19 +147,6 @@ class Menu
         return $this->name.'';
     }
 
-    public function getHierarchy($activeOnly = true)
-    {
-        $retour = array();
-        $items = $this->getItems();
-        foreach ($items as $item) {
-            if ($item->getParent() === null) {
-                $this->getHierarchyFromNode($item, $retour, $activeOnly);
-            }
-        }
-
-        return $retour;
-    }
-
     public function getFirstLevelItems($activeOnly = true)
     {
         $retour = array();
@@ -172,24 +159,5 @@ class Menu
         }
 
         return $retour;
-    }
-
-    /**
-     * @param MenuItem $node
-     * @param $retour
-     * @param $activeOnly
-     */
-    public function getHierarchyFromNode(MenuItem $node, &$retour, $activeOnly)
-    {
-        if (!$node->isActive() && $activeOnly) {
-            return;
-        }
-
-        $retour[] = $node;
-        if ($node->hasChildren()) {
-            foreach ($node->getChildren() as $child) {
-                $this->getHierarchyFromNode($child, $retour, $activeOnly);
-            }
-        }
     }
 }

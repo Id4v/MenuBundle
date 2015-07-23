@@ -1,7 +1,5 @@
 services:
-    gedmo.listener.sluggable:
-        class: Gedmo\Sluggable\SluggableListener
-        tags:
-            - { name: doctrine.event_subscriber, connection: default }
-        calls:
-            - [ setAnnotationReader, [ @annotation_reader ] ]
+    id4v.menu.manager:
+        class: Id4v\Bundle\MenuBundle\Manager\MenuManager
+        arguments: ['@form.factory', '%id4v_menu.admin.menu_depth%']
+
