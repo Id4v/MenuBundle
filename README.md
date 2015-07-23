@@ -38,7 +38,7 @@ public function registerBundles()
 stof_doctrine_extensions:
     orm:
         default:
-            sortable: true
+            sluggable: true
 ```
 
 4 Register the `id4v_menu.admin.menu` Service to your sonata admin configuration
@@ -57,11 +57,17 @@ stof_doctrine_extensions:
 
 **Render your Menu in twig templates like this**
 ```twig
-{{ render_menu("menu-principal",{template: "Id4vMenuBundle:Block:menu.html.twig"}) }}
+{{ knp_menu_render("menu-principal",{template: "Id4vMenuBundle:Block:menu.html.twig"}) }}
 ```
-Options to this functions are :
-* template:  the template you want to use to render the menu *(default is "Id4vMenuBundle:Block:menu.html.twig")*
 
+All documentation for this tag is available here : [KnpMenuBundle](http://symfony.com/doc/master/bundles/KnpMenuBundle/index.html)
 
+A base builder as been added to help common usage of menu creation, extends `BaseMenuBuilder.php`
 
+The basic declaration for example is : 
 
+```yml
+app.menu.your_builder:
+    class: AppBundle\Menu\YourMenuBuilder
+    arguments: ["@knp_menu.factory", "@doctrine.orm.entity_manager"]
+``` 
