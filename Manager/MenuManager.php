@@ -7,7 +7,9 @@ use Id4v\Bundle\MenuBundle\Form\Type\MenuItemOrderingType;
 
 class MenuManager
 {
-    protected static $drawForms = 20;
+    protected static $depthMax = 2;
+
+    protected $depthInitial;
 
     protected $formFactory;
 
@@ -23,27 +25,29 @@ class MenuManager
     {
         $forms = array();
 
+        if (count($items) < 1)
+            return $forms;
+
+        $this->depthInitial = $items[0]->getDepth()+1;
         $this->processDepth($forms, $items);
 
         return $forms;
     }
 
-    public function drawNodeForm(&$forms, $items)
+    public function drawNodeForm(&$forms, $item)
     {
-        foreach ($items as $item) {
-            $form = $this->formFactory->create(new MenuItemOrderingType(), $item);
-            $forms[] = $form->createView();
-        }
+        $form = $this->formFactory->create(new MenuItemOrderingType(), $item);
+        $forms[] = $form->createView();
     }
 
     public function processDepth(&$forms, $items)
     {
-        $this->drawNodeForm($forms, $items);
+        foreach ($items as $item) {
+            $this->drawNodeForm($forms, $item);
 
-//        if (count($forms) < $this::$drawForms) {
-//            foreach ($items as $item) {
-//                $this->processDepth($forms, $item->getChildren());
-//            }
-//        }
+            if ($item->getDepth() < $this->depthInitial+$this::$depthMax) {
+                $this->processDepth($forms, $item->getChildren());
+            }
+        }
     }
 }
