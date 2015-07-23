@@ -3,7 +3,6 @@
 namespace Id4v\Bundle\MenuBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * MenuItem.
@@ -51,12 +50,10 @@ class MenuItem
     private $target = '_self';
 
     /**
-     * @Gedmo\SortablePosition
-     *
      * @var int
      * @ORM\Column(name="position", type="integer", nullable=false)
      */
-    private $position;
+    private $position = 0;
 
     /**
      * @var int
@@ -65,7 +62,6 @@ class MenuItem
     private $depth = 1;
 
     /**
-     * @Gedmo\SortableGroup
      * @ORM\ManyToOne(targetEntity="MenuItem", inversedBy="children")
      * @ORM\JoinColumn(name="parent_id", referencedColumnName="id", onDelete="CASCADE")
      */
