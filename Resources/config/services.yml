@@ -1,5 +1,5 @@
 services:
     id4v.menu.manager:
         class: Id4v\Bundle\MenuBundle\Manager\MenuManager
-        arguments: ['@form.factory']
+        arguments: ['@form.factory', '%id4v_menu.admin.menu_depth%']
 

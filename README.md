@@ -71,3 +71,15 @@ app.menu.your_builder:
     class: AppBundle\Menu\YourMenuBuilder
     arguments: ["@knp_menu.factory", "@doctrine.orm.entity_manager"]
 ``` 
+
+Sometimes you get an abundant tree into your menus. And the performance of the administration get found affected.
+It's the reason why existing a configuration with the bundle.
+
+By default you can only drap and drop two levels depth. If you want to change it, modify the `menu_depth` node.
+
+__Default Configuration__
+```yml
+id4v_menu:
+    admin:
+        menu_depth: 2
+```
