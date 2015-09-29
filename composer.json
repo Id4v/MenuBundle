@@ -1,14 +1,14 @@
 {
     "name": "id4v/menu-bundle",
     "type": "symfony-bundle",
-    "description": "Menu Bundle that allows you to create menus, and manage them easily",
-    "keywords": ["Menu","menu generator"],
+    "description": "Menu Bundle that allows you to create menus, and manage them easily with SonataAdminBundle",
+    "keywords": ["Menu", "menu generator", "generator", "sonata", "admin"],
     "license": "MIT",
     "require": {
         "sonata-project/admin-bundle": "~2.3",
         "gedmo/doctrine-extensions": "2.3.*",
         "stof/doctrine-extensions-bundle": "~1.1",
-        "knplabs/knp-menu-bundle": "~2"
+        "knplabs/knp-menu-bundle": "~2.0"
     },
     "authors": [
         {
