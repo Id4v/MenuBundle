@@ -4,12 +4,6 @@
     "description": "Menu Bundle that allows you to create menus, and manage them easily with SonataAdminBundle",
     "keywords": ["Menu", "menu generator", "generator", "sonata", "admin"],
     "license": "MIT",
-    "require": {
-        "sonata-project/admin-bundle": "~2.3",
-        "gedmo/doctrine-extensions": "2.3.*",
-        "stof/doctrine-extensions-bundle": "~1.1",
-        "knplabs/knp-menu-bundle": "~2.0"
-    },
     "authors": [
         {
             "name": "David Rimbault",
@@ -20,13 +14,21 @@
             "email": "marodon.jeremy@gmail.com"
         }
     ],
-    "autoload": {
-        "psr-4": { "Id4v\\Bundle\\MenuBundle\\": "" }
+    "require": {
+        "sonata-project/admin-bundle": "~2.4@dev",
+        "stof/doctrine-extensions-bundle": "^1.2",
+        "knplabs/knp-menu-bundle": "^2.0"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Id4v\\Bundle\\MenuBundle\\": ""
+        }
+    },
     "extra": {
         "branch-alias": {
-            "dev-master": "2.0.x-dev"
+            "dev-master": "3.0.x-dev"
         }
     }
 }

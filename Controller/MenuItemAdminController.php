@@ -4,31 +4,28 @@ namespace Id4v\Bundle\MenuBundle\Controller;
 
 use Sonata\AdminBundle\Controller\CRUDController as Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 class MenuItemAdminController extends Controller
 {
     /**
-     * Redirect the user depend on this choice.
-     *
-     * @param object $object
-     *
-     * @return RedirectResponse
+     * {@inheritdoc}
      */
-    protected function redirectTo($object)
+    protected function redirectTo($object, Request $request = null)
     {
         $url = false;
 
-        if (null !== $this->get('request')->get('btn_update_and_list')) {
+        if (null !== $request->get('btn_update_and_list')) {
             $url = $this->redirectToMenu('admin_id4v_menu_menu_organize', $object);
         }
-        if (null !== $this->get('request')->get('btn_create_and_list')) {
+        if (null !== $request->get('btn_create_and_list')) {
             $url = $this->redirectToMenu('admin_id4v_menu_menu_organize', $object);
         }
 
-        if (null !== $this->get('request')->get('btn_create_and_create')) {
+        if (null !== $request->get('btn_create_and_create')) {
             $params = array();
             if ($this->admin->hasActiveSubClass()) {
-                $params['subclass'] = $this->get('request')->get('subclass');
+                $params['subclass'] = $request->get('subclass');
             }
             $url = $this->admin->generateUrl('create', $params);
         }
@@ -38,7 +35,12 @@ class MenuItemAdminController extends Controller
         }
 
         if (!$url) {
-            $url = $this->admin->generateObjectUrl('edit', $object);
+            foreach (array('edit', 'show') as $route) {
+                if ($this->admin->hasRoute($route) && $this->admin->isGranted(strtoupper($route), $object)) {
+                    $url = $this->admin->generateObjectUrl($route, $object);
+                    break;
+                }
+            }
         }
 
         return new RedirectResponse($url);
