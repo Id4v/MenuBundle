@@ -39,7 +39,10 @@ class MenuAdminController extends Controller
         }
 
         $em->flush();
-        $request->getSession()->getFlashBag()->add('success', 'Menu modifié avec succès');
+        $request->getSession()->getFlashBag()->add(
+            'success',
+            $this->get('translator')->trans('menu.save.items.success', array(), 'Id4vMenuBundle')
+        );
 
         return $this->redirect($this->generateUrl('admin_id4v_menu_menu_organize', array('id' => $request->get('id'))));
     }

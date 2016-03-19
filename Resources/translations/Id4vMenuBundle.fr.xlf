@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="fr" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="menu.save.items.success">
+                <source>menu.save.items.success</source>
+                <target>Menu modifié avec succès.</target>
+            </trans-unit>
+            <trans-unit id="menu.save.items.validate">
+                <source>menu.save.items.validate</source>
+                <target>Valider les modifications</target>
+            </trans-unit>
+            <trans-unit id="menu.add.item">
+                <source>menu.add.item</source>
+                <target>Ajouter un élément au menu</target>
+            </trans-unit>
+            <trans-unit id="menu.organize">
+                <source>menu.organize</source>
+                <target>Organiser</target>
+            </trans-unit>
+            <trans-unit id="menu.organize.form.show">
+                <source>menu.organize.form.show</source>
+                <target>Montrer les champs Parents et Ordre</target>
+            </trans-unit>
+            <trans-unit id="menu.organize.form.hide">
+                <source>menu.organize.form.hide</source>
+                <target>Cacher les champs Parents et Ordre</target>
+            </trans-unit>
+            <trans-unit id="menu.organize.title">
+                <source>menu.organize.title</source>
+                <target>Editer le menu</target>
+            </trans-unit>
+            <trans-unit id="menu.edition">
+                <source>menu.edition</source>
+                <target>Edition</target>
+            </trans-unit>
+            <trans-unit id="menu.item.title">
+                <source>menu.item.title</source>
+                <target>Titre</target>
+            </trans-unit>
+            <trans-unit id="menu.item.order">
+                <source>menu.item.order</source>
+                <target>Ordre</target>
+            </trans-unit>
+            <trans-unit id="menu.item.parent">
+                <source>menu.item.parent</source>
+                <target>Parent</target>
+            </trans-unit>
+            <trans-unit id="menu.actions">
+                <source>menu.actions</source>
+                <target>Actions</target>
+            </trans-unit>
+            <trans-unit id="menu.name">
+                <source>menu.name</source>
+                <target>Nom du menu</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

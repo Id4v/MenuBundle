@@ -20,7 +20,7 @@ class MenuAdmin extends Admin
      */
     protected function configureRoutes(RouteCollection $collection)
     {
-        $collection->add('organize', $this->getRouterIdParameter().'/organiser');
+        $collection->add('organize', $this->getRouterIdParameter().'/organize');
         $collection->add('addItem', $this->getRouterIdParameter().'/add_item');
         $collection->add('updateItems', $this->getRouterIdParameter().'/update_items');
         $collection->add('editItem', $this->getRouterIdParameter().'/edit_item');
@@ -47,7 +47,7 @@ class MenuAdmin extends Admin
             ->add('slug')
             ->add('_action', 'actions', array(
                 'actions' => array(
-                    'arrange' => array(
+                    'organize' => array(
                         'template' => 'Id4vMenuBundle:CRUD:list__action_organize.html.twig',
                     ),
                     'edit' => array(),
@@ -63,11 +63,23 @@ class MenuAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('name', null, array('label' => 'Nom du menu'))
+            ->add(
+                'name',
+                null,
+                array(
+                    'label' => 'menu.name',
+                ),
+                array(
+                    'translation_domain' => 'Id4vMenuBundle',
+                )
+            )
         ;
 
         if ($this->id($this->getSubject())) {
-            $formMapper->add('slug', 'text', array('read_only' => true, 'required' => false));
+            $formMapper->add('slug', 'text', array(
+                'read_only' => true,
+                'required' => false,
+            ));
         }
     }
 
@@ -81,24 +93,4 @@ class MenuAdmin extends Admin
             ->add('slug')
         ;
     }
-
-/*    public function create($object)
-    {
-
-        $retour=parent::create($object);
-
-        $em=$this->getConfigurationPool()->getContainer()->get("doctrine")->getEntityManagerForClass("Id4vMenuBundle:MenuItem");
-
-        $menuItem = new MenuItem();
-        $menuItem->setTitle("Racine");
-        $menuItem->setActive(false);
-        $menuItem->setUrl("#");
-
-        $menuItem->setMenu($object);
-
-        $em->persist($menuItem);
-        $em->flush();
-
-        return $retour;
-    }*/
 }

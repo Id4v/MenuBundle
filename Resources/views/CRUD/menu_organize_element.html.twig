@@ -16,11 +16,11 @@
 
 {% block tab_menu_navbar_header %}
     <div class="navbar-header">
-        <span class="navbar-brand">Editer le menu "{{ menu.name }}"</span>
+        <span class="navbar-brand">{{ 'menu.organize.title'|trans({}, 'Id4vMenuBundle') }} "{{ menu.name }}"</span>
     </div>
     <div class="container-fluid">
         <div class="navbar-form navbar-right">
-            <a class="btn btn-primary" href="{{ path('admin_id4v_menu_menu_menuitem_create',{'id':menu.id}) }}">Ajouter un élément au menu</a>
+            <a class="btn btn-primary" href="{{ path('admin_id4v_menu_menu_menuitem_create',{'id':menu.id}) }}">{{ 'menu.add.item'|trans({}, 'Id4vMenuBundle') }}</a>
         </div>
     </div>
 {% endblock %}
@@ -35,9 +35,10 @@
         <div id="menuTree" class="col-xs-12">
             <div class="box box-primary">
                 <div class="box-header">
-                    <h4 class="box-title">Edition</h4>
+                    <h4 class="box-title">{{ 'menu.edition'|trans({}, 'Id4vMenuBundle') }}</h4>
                     <div class="navbar-form pull-right">
-                        <button id="fake_submit" class="btn btn-default">Valider les modifications</button>
+                        <button id="fake_submit" class="btn btn-default">{{ 'menu.save.items.validate'|trans({}, 'Id4vMenuBundle')
+                            }}</button>
                     </div>
                 </div>
                 <div class="box-body no-padding">
@@ -45,10 +46,10 @@
                         <table id="table-tree" class="table table-bordered table-striped">
                             <thead>
                             <tr>
-                                <th>Titre</th>
-                                <th>Ordre</th>
-                                <th>Parent</th>
-                                <th>Actions</th>
+                                <th>{{ 'menu.item.title'|trans({}, 'Id4vMenuBundle') }}</th>
+                                <th>{{ 'menu.item.order'|trans({}, 'Id4vMenuBundle') }}</th>
+                                <th>{{ 'menu.item.parent'|trans({}, 'Id4vMenuBundle') }}</th>
+                                <th>{{ 'menu.actions'|trans({}, 'Id4vMenuBundle') }}</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -73,7 +74,7 @@
                                                    'childId':form.vars.data.id
                                                }) }}">
                                                 <i class="glyphicon glyphicon-edit"></i>
-                                                Editer
+                                                {{ 'link_action_edit'|trans({}, 'SonataAdminBundle') }}
                                             </a>
                                             <a class="btn btn-default btn-sm delete_link"
                                                href="{{ path('admin_id4v_menu_menu_menuitem_delete',{
@@ -81,7 +82,7 @@
                                                    'childId':form.vars.data.id
                                                }) }}">
                                                 <i class="glyphicon glyphicon-remove"></i>
-                                                Supprimer
+                                                {{ 'action_delete'|trans({}, 'SonataAdminBundle') }}
                                             </a>
                                         </div>
                                     </td>
