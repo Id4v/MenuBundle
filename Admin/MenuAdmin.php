@@ -20,7 +20,7 @@ class MenuAdmin extends Admin
      */
     protected function configureRoutes(RouteCollection $collection)
     {
-        $collection->add('organize', $this->getRouterIdParameter().'/organize');
+        //$collection->add('organize', $this->getRouterIdParameter().'/organize');
         $collection->add('addItem', $this->getRouterIdParameter().'/add_item');
         $collection->add('updateItems', $this->getRouterIdParameter().'/update_items');
         $collection->add('editItem', $this->getRouterIdParameter().'/edit_item');
@@ -47,8 +47,8 @@ class MenuAdmin extends Admin
             ->add('slug')
             ->add('_action', 'actions', array(
                 'actions' => array(
-                    'organize' => array(
-                        'template' => 'Id4vMenuBundle:CRUD:list__action_organize.html.twig',
+                    'menuitem_list'=>array(
+                        "template"=>"Id4vMenuBundle:CRUD:list__action_menuitem_list.html.twig"
                     ),
                     'edit' => array(),
                     'delete' => array(),

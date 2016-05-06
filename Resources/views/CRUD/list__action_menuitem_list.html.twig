@@ -1,0 +1,5 @@
+{% set itemAdmin = admin.getChild("id4v_menu.admin.menu_item") %}
+<a href="{{ itemAdmin.generateObjectUrl('list', object) }}" class="btn btn-sm btn-default" title="{{ 'menu.organize'|trans({}, 'Id4vMenuBundle') }}">
+    <i class="glyphicon glyphicon-sort-by-order"></i>
+    {{ 'menu.organize'|trans({}, 'Id4vMenuBundle') }}
+</a>

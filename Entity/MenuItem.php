@@ -3,6 +3,7 @@
 namespace Id4v\Bundle\MenuBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * MenuItem.
@@ -52,6 +53,7 @@ class MenuItem
     /**
      * @var int
      * @ORM\Column(name="position", type="integer", nullable=false)
+     * @Gedmo\SortablePosition()
      */
     private $position = 0;
 
@@ -64,6 +66,7 @@ class MenuItem
     /**
      * @ORM\ManyToOne(targetEntity="MenuItem", inversedBy="children")
      * @ORM\JoinColumn(name="parent_id", referencedColumnName="id", onDelete="CASCADE")
+     * @Gedmo\SortableGroup()
      */
     private $parent;
 
@@ -349,5 +352,15 @@ class MenuItem
     public function hasChildren()
     {
         return count($this->children) > 0;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean
+     */
+    public function getActive()
+    {
+        return $this->active;
     }
 }

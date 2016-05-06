@@ -1,0 +1,21 @@
+{
+  "name": "MenuBundle",
+  "homepage": "https://github.com/Id4v/MenuBundle",
+  "authors": [
+    "David Rimbault <rimbault.david@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "uikit": "^2.26.2"
+  }
+}

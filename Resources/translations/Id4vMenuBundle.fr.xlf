@@ -2,6 +2,7 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="fr" datatype="plaintext" original="file.ext">
         <body>
+
             <trans-unit id="menu.save.items.success">
                 <source>menu.save.items.success</source>
                 <target>Menu modifié avec succès.</target>
@@ -53,6 +54,14 @@
             <trans-unit id="menu.name">
                 <source>menu.name</source>
                 <target>Nom du menu</target>
+            </trans-unit>
+            <trans-unit id="menu.menu_label">
+                <source>menu.menu_label</source>
+                <target>Menus</target>
+            </trans-unit>
+            <trans-unit id="menu.menu_item_label">
+                <source>menu.menu_item_label</source>
+                <target>Eléments de menu</target>
             </trans-unit>
         </body>
     </file>

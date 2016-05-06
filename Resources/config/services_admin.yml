@@ -3,12 +3,15 @@ services:
         class: Id4v\Bundle\MenuBundle\Admin\MenuAdmin
         arguments: [~, Id4v\Bundle\MenuBundle\Entity\Menu, Id4vMenuBundle:MenuAdmin]
         calls:
+            - [ setTranslationDomain, ["Id4vMenuBundle"]]
             - [ addChild, ['@id4v_menu.admin.menu_item' ] ]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: Contenus, label: Menu}
+            - {name: sonata.admin, manager_type: orm, group: menu.group, label: menu.menu_label}
 
     id4v_menu.admin.menu_item:
         class: Id4v\Bundle\MenuBundle\Admin\MenuItemAdmin
         arguments: [~, Id4v\Bundle\MenuBundle\Entity\MenuItem, Id4vMenuBundle:MenuItemAdmin]
+        calls:
+            - [ setTranslationDomain, ["Id4vMenuBundle"]]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: Contenus, label: Element de Menu}
+            - {name: sonata.admin, manager_type: orm, group: menu.group, label: menu.menu_item_label}

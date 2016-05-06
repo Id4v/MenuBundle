@@ -1,0 +1,14 @@
+{
+  "name": "menubundle",
+  "version": "1.0.0",
+  "description": "[![SensioLabsInsight](https://insight.sensiolabs.com/projects/d95d8fb7-d620-4c20-a46c-5bb89cdb2a01/small.png)](https://insight.sensiolabs.com/projects/d95d8fb7-d620-4c20-a46c-5bb89cdb2a01)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}

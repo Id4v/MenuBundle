@@ -1,0 +1,73 @@
+{% extends "SonataAdminBundle:CRUD:base_list.html.twig" %}
+
+{% import _self as tree %}
+{% macro pages(pages, admin, rootPages) %}
+    <ul{% if rootPages %} class="uk-nestable"{% endif %}>
+        {% for page in pages if not page.parent or not rootPages %}
+            <li class="uk-nestable-item" id4v-data-id="{{ page.id }}">
+                <div class="uk-nestable-panel">
+                    <a class="page-tree__item__edit" href="{{ admin.generateObjectUrl('edit', page) }}">{{ page.title }}</a>
+                    <a class="text-danger pull-right" href="{{ admin.generateObjectUrl("delete",page) }}"><i class="fa fa-times"></i></a>
+                </div>
+                {% if page.children|length %}
+                    {{ _self.pages(page.children, admin, false) }}
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endmacro %}
+
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/id4vmenu/css/uikit/css/uikit.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/id4vmenu/css/uikit/css/uikit.almost-flat.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/id4vmenu/css/uikit/css/components/nestable.almost-flat.min.css') }}">
+{% endblock %}
+
+
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+    <script src="{{ asset('bundles/id4vmenu/js/uikit/js/uikit.min.js') }}"></script>
+    <script src="{{ asset('bundles/id4vmenu/js/uikit/js/components/nestable.min.js') }}"></script>
+    <script>
+        $().ready(function(){
+            var element=document.querySelector("ul.uk-nestable");
+            var nestable = UIkit.nestable(element, {
+            });
+
+            nestable.on("change.uk.nestable",function(e,sort,el,action){
+                var $el=el;
+                var id=$el.attr("id4v-data-id");
+                var position = $el.index();
+                var parent = $el.parents(".uk-nestable-item").attr("id4v-data-id");
+                var route = Routing.generate("admin_id4v_menu_menuitem_updateItem",{"id":id});
+                $.ajax(route,{
+                    data:{
+                        id:id,
+                        parent:parent,
+                        position:position
+                    },
+                    success:function(data,message,xhr){
+
+                    }
+                })
+
+            });
+        })
+    </script>
+{% endblock %}
+
+
+{% block list_table %}
+    <div class="col-xs-12 col-md-12">
+        <div class="box box-primary">
+            <div class="box-body">
+                {{ tree.pages(admin.datagrid.results, admin, true) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
