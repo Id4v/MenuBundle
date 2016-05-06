@@ -55,7 +55,7 @@ class MenuItem
      * @ORM\Column(name="position", type="integer", nullable=false)
      * @Gedmo\SortablePosition()
      */
-    private $position = 0;
+    private $position;
 
     /**
      * @var int

@@ -63,6 +63,18 @@
                 <source>menu.menu_item_label</source>
                 <target>Eléments de menu</target>
             </trans-unit>
+            <trans-unit id="menu.menu_item.updated">
+                <source>menu.menu_item.updated</source>
+                <target>Mise à jour enregistrée</target>
+            </trans-unit>
+            <trans-unit id="menu.menu_item.error">
+                <source>menu.menu_item.error</source>
+                <target>Une erreur est survenue</target>
+            </trans-unit>
+            <trans-unit id="id4v.menu_item.warning_delete">
+                <source>id4v.menu_item.warning_delete</source>
+                <target>Attention, en supprimant cet item, vous supprimerez également ses enfants.</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

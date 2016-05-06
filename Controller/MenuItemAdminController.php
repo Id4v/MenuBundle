@@ -20,7 +20,12 @@ class MenuItemAdminController extends Controller
         $item=$repo->find($id);
         $response=new JsonResponse();
         if(!$item){
-            return $response->setStatusCode(500,"Item not found");
+            $response->setStatusCode(200,"Item not found");
+            $response->setData(array(
+                "state"=>"danger",
+                "message"=>$this->get("translator")->trans("menu.menu_item.error",array(),"Id4vMenuBundle")
+            ));
+            return $response;
         }
         if(isset($parent)) {
             $item->setParent($repo->find($parent));
@@ -30,8 +35,13 @@ class MenuItemAdminController extends Controller
         $item->setPosition($position);
         $em->persist($item);
         $em->flush();
-        $response->setStatusCode(200);
-        $response->setData(json_encode($item));
+        $response->setStatusCode(200,"Item Updated");
+        $response->setData(
+            array(
+                "state"=>"success",
+                "message"=>$this->get("translator")->trans("menu.menu_item.updated",array(),"Id4vMenuBundle")
+            )
+        );
         return $response;
     }
 }
