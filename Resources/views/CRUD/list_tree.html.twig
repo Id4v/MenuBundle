@@ -7,6 +7,7 @@
             <li class="uk-nestable-item" id4v-data-id="{{ page.id }}">
                 <div class="uk-nestable-panel">
                     <a class="page-tree__item__edit" href="{{ admin.generateObjectUrl('edit', page) }}">{{ page.title }}</a>
+                    <span class="text-center text-muted">{{ page.url }}</span>
                     <a class="text-danger pull-right" href="{{ admin.generateObjectUrl("delete",page) }}"><i class="fa fa-times"></i></a>
                 </div>
                 {% if page.children|length %}

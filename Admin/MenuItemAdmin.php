@@ -38,13 +38,9 @@ class MenuItemAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('id')
             ->add('title')
             ->add('url')
             ->add('active')
-            ->add('target')
-            ->add('position')
-            ->add('depth')
         ;
     }
 
