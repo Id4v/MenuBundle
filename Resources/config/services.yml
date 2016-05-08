@@ -14,7 +14,4 @@ services:
         arguments: ["@id4v.menu.loader","@id4v.menu.builder","@knp_menu.factory"]
         tags:
             - { name: knp_menu.provider }
-    id4v.menu.manager:
-        class: Id4v\Bundle\MenuBundle\Manager\MenuManager
-        arguments: ['@form.factory', '%id4v_menu.admin.menu_depth%']
 

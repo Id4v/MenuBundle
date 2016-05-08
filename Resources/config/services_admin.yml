@@ -1,7 +1,7 @@
 services:
     id4v_menu.admin.menu:
         class: Id4v\Bundle\MenuBundle\Admin\MenuAdmin
-        arguments: [~, Id4v\Bundle\MenuBundle\Entity\Menu, Id4vMenuBundle:MenuAdmin]
+        arguments: [~, Id4v\Bundle\MenuBundle\Entity\Menu, ~]
         calls:
             - [ setTranslationDomain, ["Id4vMenuBundle"]]
             - [ addChild, ['@id4v_menu.admin.menu_item' ] ]
