@@ -2,9 +2,6 @@
 
 namespace Id4v\Bundle\MenuBundle\Builder;
 
-use Knp\Menu\FactoryInterface;
-use Doctrine\ORM\EntityManager;
-
 class BaseMenuBuilder implements MenuBuilderInterface
 {
     public function buildMenu($node, $items)
@@ -26,6 +23,7 @@ class BaseMenuBuilder implements MenuBuilderInterface
                 $this->buildMenu($node[$item->getTitle()], $item->getChildren());
             }
         }
+
         return $node;
     }
 }

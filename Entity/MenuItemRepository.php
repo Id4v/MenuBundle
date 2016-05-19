@@ -2,7 +2,6 @@
 
 namespace Id4v\Bundle\MenuBundle\Entity;
 
-use Doctrine\ORM\EntityRepository;
 use Gedmo\Sortable\Entity\Repository\SortableRepository;
 
 /**
