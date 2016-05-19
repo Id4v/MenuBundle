@@ -355,9 +355,9 @@ class MenuItem
     }
 
     /**
-     * Get active
+     * Get active.
      *
-     * @return boolean
+     * @return bool
      */
     public function getActive()
     {
