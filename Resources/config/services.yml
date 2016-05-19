@@ -1,5 +1,17 @@
+parameters:
+    id4v.menu.provider.class: "Id4v\\Bundle\\MenuBundle\\Provider\\Id4vMenuProvider"
+    id4v.menu.loader.class: "Id4v\\Bundle\\MenuBundle\\Loader\\Id4vMenuLoader"
+    id4v.menu.builder.class: "Id4v\\Bundle\\MenuBundle\\Builder\\BaseMenuBuilder"
+
 services:
-    id4v.menu.manager:
-        class: Id4v\Bundle\MenuBundle\Manager\MenuManager
-        arguments: ['@form.factory', '%id4v_menu.admin.menu_depth%']
+    id4v.menu.builder:
+        class: "%id4v.menu.builder.class%"
+    id4v.menu.loader:
+        class: "%id4v.menu.loader.class%"
+        arguments: ["@doctrine"]
+    id4v.menu.provider:
+        class: "%id4v.menu.provider.class%"
+        arguments: ["@id4v.menu.loader","@id4v.menu.builder","@knp_menu.factory"]
+        tags:
+            - { name: knp_menu.provider }
 

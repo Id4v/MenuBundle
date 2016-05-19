@@ -75,6 +75,23 @@
                 <source>id4v.menu_item.warning_delete</source>
                 <target>Attention, en supprimant cet item, vous supprimerez également ses enfants.</target>
             </trans-unit>
+
+            <trans-unit id="Menu List">
+                <source>Menu List</source>
+                <target>Liste des menus</target>
+            </trans-unit>
+            <trans-unit id="Menu Item List">
+                <source>Menu Item List</source>
+                <target>Listes des Eléments du menu</target>
+            </trans-unit>
+            <trans-unit id="Depth">
+                <source>Depth</source>
+                <target>Profondeur</target>
+            </trans-unit>
+            <trans-unit id="Title">
+                <source>Title</source>
+                <target>Titre</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
