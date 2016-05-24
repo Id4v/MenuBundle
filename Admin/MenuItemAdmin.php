@@ -84,9 +84,11 @@ class MenuItemAdmin extends Admin
             ))
             ->add('target', 'choice', array(
                 'label' => 'Ouverture',
+                'choices_as_values' => true,
+                'translation_domain'=>$this->getTranslationDomain(),
                 'choices' => array(
-                    '_self' => 'Même fenetre',
-                    '_target' => 'Nouvelle fenêtre',
+                    'menu.menu_item.same_window'=>'_self',
+                    'menu.menu_item.new_window'=>'_target',
                 ),
             ))
         ;

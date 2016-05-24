@@ -76,7 +76,9 @@ class MenuAdmin extends Admin
 
         if ($this->id($this->getSubject())) {
             $formMapper->add('slug', 'text', array(
-                'read_only' => true,
+                'attr' => array(
+                    "readonly"=>true
+                ),
                 'required' => false,
             ));
         }

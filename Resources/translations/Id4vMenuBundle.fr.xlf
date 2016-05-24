@@ -92,6 +92,14 @@
                 <source>Title</source>
                 <target>Titre</target>
             </trans-unit>
+            <trans-unit id="menu.menu_item.same_window">
+                <source>menu.menu_item.same_window</source>
+                <target>Même Fenêtre</target>
+            </trans-unit>
+            <trans-unit id="menu.menu_item.new_window">
+                <source>menu.menu_item.new_window</source>
+                <target>Nouvelle fenêtre</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
