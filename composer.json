@@ -15,10 +15,10 @@
         }
     ],
     "require": {
-        "sonata-project/admin-bundle": "2.3.* || ^3.0",
-        "stof/doctrine-extensions-bundle": "^1.2",
+        "friendsofsymfony/jsrouting-bundle": "^1.6",
         "knplabs/knp-menu-bundle": "^2.0",
-        "friendsofsymfony/jsrouting-bundle": "^1.6"
+        "sonata-project/admin-bundle": "^2.3 || ^3.0",
+        "stof/doctrine-extensions-bundle": "^1.2"
     },
     "minimum-stability": "stable",
     "prefer-stable": true,
@@ -29,7 +29,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "3.0.x-dev"
+            "dev-master": "3.x-dev"
         }
     }
 }
